@@ -4,5 +4,6 @@ from django.urls import path
 from baseapp import views
 
 urlpatterns = [
-    # Define more URL patterns as needed
+    path("", views.home, name="homePage"),
+    path("about/", views.about, name="aboutPage"),
 ]
