@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static './css/base.css' %}" />
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <!-- --------------------------- Desktop Navbar ---------------------------- -->
+    <div id="desktop-navbar" class="desktop-navbar">
+      <span
+        ><img class="icon" src="{% static 'images/trnlogo.svg' %}" alt="TRN"
+      /></span>
+      <ul class="navlist">
+        <li><a id="Home" href="{% url 'homePage' %}">Home</a></li>
+        <li><a id="About" href="{% url 'aboutPage' %}">About Us</a></li>
+        <li><a id="Donate" href="">Donate</a></li>
+        <li><a id="LoginBtn" href="javascript:void(0);">Login</a></li>
+        <li>
+          <form class="search-area" action="">
+            <input
+              type="text"
+              name="search-bar"
+              id="search-bar"
+              placeholder="Search"
+            />
+            <button id="search-icon" class="search-icon" type="submit">
+              <img width="16em" src="{% static 'images/search.svg' %}" alt="" />
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ---------------------------- Mobile Navbar ---------------------------- -->
+    <div class="mobile-navbar" id="mobile-navbar">
+      <span class="mobile-navbar-icon" id="mobile-navbar-icon">
+        <img
+          width="25px"
+          src="{% static 'images/trnlogo.svg' %}"
+          alt="Navigation Bar"
+        />
+      </span>
+      <div class="mobile-links">
+        <a href="{% url 'homePage' %}">Home</a>
+        <a href="{% url 'aboutPage' %}">About Us</a>
+        <a href="">Donate</a>
+        <a href="">Login</a>
+      </div>
+    </div>
+
+    <div id="OuterFormDiv">
+      <div class="center-container" id="innerFormDiv">
+        <img class="icon" src="{% static 'images/trnlogo.svg' %}" alt="" />
+        <br /><br />
+        <form method="post" id="LoginForm">
+          {% csrf_token %}
+          <input type="text" name="Name" placeholder="Name" />
+          <br /><br />
+          <input type="email" name="City" placeholder="Email" />
+          <br /><br />
+          <input type="password" name="City" placeholder="Password" />
+          <br /><br />
+          <input
+            type="submit"
+            class="submitBtn"
+            id="SubmitBtn"
+            value="Submit"
+          />
+        </form>
+
+        <form method="post" id="SignUpForm" class="signup-form hidden">
+          {% csrf_token %}
+          <input type="text" name="FullName" placeholder="Full Name" />
+          <br /><br />
+          <input type="email" name="Email" placeholder="Email" />
+          <br /><br />
+          <input type="password" name="Password" placeholder="Password" />
+          <br /><br />
+          <input
+            type="submit"
+            class="submitBtn"
+            id="SignUpBtn"
+            value="Sign Up"
+          />
+        </form>
+
+        <br /><br />
+        <span><a href="#">Forgot Password?</a></span>
+        <span
+          >Don't have an account?<a href="#" id="SignUpLink">Sign Up</a></span
+        >
+      </div>
+    </div>
+
+    {% block body %} {% endblock %} {% block script %} {% endblock %}
+    <script src="{% static 'js/base.js' %}"></script>
+  </body>
+</html>
