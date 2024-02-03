@@ -8,6 +8,7 @@
 ```pip install -r requirements.txt```
 #### Create migrations : 
 ```python manage.py makemigrations```
+
 ```python manage.py migrate```
 #### Run server & Enjoy
 ```python manage.py migrate```
