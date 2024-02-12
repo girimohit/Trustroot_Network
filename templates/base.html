@@ -2,16 +2,60 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{% static './css/base.css' %}" />
-    {% block css %} {% endblock %}
-  </head>
-  <body>
-    <!-- --------------------------- Desktop Navbar ---------------------------- -->
-    <div id="desktop-navbar" class="desktop-navbar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %} {% endblock %}</title>
+  <link rel="stylesheet" href="{% static './css/base.css' %}" />
+  {% block css %} {% endblock %}
+</head>
+
+<body>
+  <div id="main" class="main">
+    <header>
+      <div class="top-bar" id="top-bar">
+        <div class="left-top-bar">
+          <span>+9105243200202</span>
+          <span>Trustroot@info.org</span>
+        </div>
+        <div class="right-top-bar">
+          <span><img class="logo" src="{% static 'images/fb_logo.svg' %}" alt="facebook" /></span>
+          <span><img class="logo" src="{% static 'images/x_logo.svg' %}" alt="twitter" /></span>
+          <span><img class="logo" src="{% static 'images/insta_logo.svg' %}" alt="instagram" /></span>
+          <span><img class="logo" src="{% static 'images/youtube_logo.svg' %}" alt="youtube" /></span>
+          <span><img class="logo" src="{% static 'images/linkedin_logo.svg' %}" alt="linkedin" /></span>
+        </div>
+
+
+      </div>
+
+      <nav>
+        <div class="navbar-div">
+          <ul class="nav-tabs">
+            <li>
+              <img width="40vw" src="{% static 'images/trn_logo.png' %}" alt="logo" />
+            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Funders</a></li>
+            <li><a href="#">Grassroots</a></li>
+            <li><a href="#">Work with us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a id="LoginBtn" href="#">Login/SignUp</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="page-content" class="page-content">
+      {% block body %} {% endblock %}
+    </div>
+
+  </div>
+
+
+  <!-- <div id="desktop-navbar" class="desktop-navbar">
       <span
         ><img class="icon" src="{% static 'images/trnlogo.svg' %}" alt="TRN"
       /></span>
@@ -36,7 +80,6 @@
       </ul>
     </div>
 
-    <!-- ---------------------------- Mobile Navbar ---------------------------- -->
     <div class="mobile-navbar" id="mobile-navbar">
       <span class="mobile-navbar-icon" id="mobile-navbar-icon">
         <img
@@ -95,9 +138,9 @@
           >Don't have an account?<a href="#" id="SignUpLink">Sign Up</a></span
         >
       </div>
-    </div>
+    </div> -->
+  {% block script %} {% endblock %}
+  <script src="{% static 'js/base.js' %}"></script>
+</body>
 
-    {% block body %} {% endblock %} {% block script %} {% endblock %}
-    <script src="{% static 'js/base.js' %}"></script>
-  </body>
 </html>

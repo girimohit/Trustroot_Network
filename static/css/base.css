@@ -1,21 +1,22 @@
-body {
-  background-color: white;
-  /* color: rgb(0, 0, 0); */
-  margin: 0;
-  padding: 0;
+/* ---------------------------------- FONT ---------------------------------- */
+/* @font-family-sans: 'Open Sans', sans-serif;*/
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@200&display=swap");
+
+* {
+  font-family: "Fira Sans Condensed", sans-serif;
 }
 
 /* ---------------------------- CUSTOM SCROLLBAR ---------------------------- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  /* background: #f1f1f1; */
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: green;
+  background: #025b52;
   border-radius: 50px;
   height: 20px;
 }
@@ -24,220 +25,106 @@ body {
   background-color: black;
 }
 
-/* ----------------------------- FROM INDEX.CSS ----------------------------- */
-
-/* ---------------------------- BUTTON PROPERTIES --------------------------- */
-#InnerBtnDiv {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#openFormBtn {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  padding: 3% 18%;
-  border-radius: 10px;
-}
-
-/* ----------------------------- FORM PROPERTIES ---------------------------- */
-#OuterFormDiv {
-  display: none;
-  align-items: flex-start;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+#main {
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.527);
 }
 
-#innerFormDiv {
-  width: 20%;
-  padding: 2%;
-  background-color: #d9d9d9;
-  border-radius: 20px;
-  margin-top: 5%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+/* ---------------------------- MAIN PAGE CONTENT --------------------------- */
+.page-content {
+  padding-top: 60px;
 }
 
-#SignUpForm,
-#LoginForm {
-  color: black;
-  width: 90%;
-}
-
-#SignUpForm input:not(#SignUpBtn),
-#LoginForm input:not(#SubmitBtn) {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  width: 100%;
-  /* padding: 30% 30% 1% 1%; */
-}
-
-#SignUpForm input:not(#SignUpBtn),
-#LoginForm input:not(#SubmitBtn):focus {
-  outline: none;
-}
-
-.submitBtn {
-  background-color: #dbb670;
-  color: #025b52;
-  padding: 3% 10%;
-  border: none;
-  width: 60%;
-  border-radius: 10px;
-}
-
-/* ----------------------------- DESKTOP NAVBAR ----------------------------- */
-.desktop-navbar {
-  background-color: #d9d9d9;
-  width: 100%;
-  height: 8vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.3rem 1rem 0;
-  border-radius: 0 0 10px 10px;
+/* --------------------------------- HEADER --------------------------------- */
+header {
   position: fixed;
-}
-
-.icon {
-  width: 35px;
-  padding: 2%;
-}
-
-.navlist {
-  list-style: none;
-  display: flex;
-  gap: 3rem;
-  font-size: 1.2rem;
-  color: #025b52;
-}
-
-.navlist a {
-  color: #025b52;
-}
-
-.navlist #Donate,
-#LoginBtn {
-  background-color: #dbb670;
-  padding: 0.2rem 1rem;
-  text-decoration: none;
-  border-radius: 20px;
-}
-
-.search-area {
-  display: flex;
-  margin-right: 4rem;
-}
-
-#search-bar {
-  background-color: rgb(250, 249, 246);
-  border: none;
-  border-radius: 15px 0 0 15px;
-  text-align: center;
-  padding: 2% 0 2% 4%;
-  width: 70%;
-}
-
-#search-bar:focus {
-  outline: none;
-  text-align: left;
-}
-
-.search-icon {
-  background-color: rgb(250, 249, 246);
-  border: none;
-  border-radius: 0 15px 15px 0;
-  text-align: center;
-  padding: 2% 6% 2% 4%;
-}
-
-/* ------------------------------ Mobile Navbar ----------------------------- */
-
-.mobile-navbar {
-  background-color: #d9d9d9;
-  color: #025b52;
-  border-radius: 5px;
-}
-
-.mobile-navbar-icon {
-  display: block;
-  cursor: pointer;
-  padding: 1%;
-  padding-left: 3%;
-}
-
-.mobile-links {
-  display: none;
-  flex-direction: column;
-  border-radius: 5px;
-  padding-top: 5%;
-}
-
-.mobile-links a {
-  background-color: #d9d9d9;
-  color: #025b52;
-  padding: 1% 2%;
-}
-
-.mobile-searchbar {
-  position: absolute;
-  /* justify-self: right; */
-  margin-right: auto;
-  left: 90;
-}
-
-.mobile-links {
-  display: none;
-}
-
-/* ------------------------------- RESPONSIVE ------------------------------- */
-@media screen and (max-width: 768px) {
-  .desktop-navbar {
-    display: none;
-  }
-
-  .mobile-navbar {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mobile-links {
-    display: none;
-    position: absolute;
-    top: 3.5vh;
-    left: 0;
-    right: 0;
-  }
-
-  .mobile-links a {
-    border-bottom: 1px solid black;
-    border-radius: 5px;
-  }
-
-  .content {
-    font-size: 0.9rem;
-  }
+  width: 100%;
+  z-index: 5;
 }
 
 a {
   color: #025b52;
 }
 
-.hidden {
-  display: none;
+/* ------------------------------- TOP BAR DIV ------------------------------ */
+.logo {
+  /* width: 1.5vmax; */
+  width: 1.2em;
 }
 
-.center-container {
+.top-bar {
+  background-color: #025b52;
+  color: white;
+  height: 60px;
+  padding: 0 3vw;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+}
+
+.left-top-bar {
+  display: flex;
+  gap: 2vw;
+  font-size: 1.3vw;
+}
+
+.right-top-bar {
+  display: flex;
+  gap: 1.2vw;
+}
+
+/* ------------------------------- Navbar Div ------------------------------- */
+
+nav {
+  background-color: transparent;
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 45px;
+  justify-content: center;
+}
+
+.navbar-div {
+  width: 100%;
+  padding: 1vw 2vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.nav-tabs {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1vw;
+  font-size: 1.2vw;
+  font-weight: 1000;
+}
+
+.nav-tabs li {
+  height: 100%;
+}
+
+.nav-tabs a {
+  height: 100%;
+}
+
+.nav-tabs li a:hover {
+  font-size: 1.3vw;
+  transition: 0.4s;
+}
+
+#LoginBtn {
+  background-color: #025b52;
+  color: white;
+  padding: 0.4vw 1.3vw;
+  border: none;
+  border-radius: 0.7vw;
 }
