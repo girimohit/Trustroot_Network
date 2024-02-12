@@ -2,9 +2,9 @@ venv
 .vscode
 *.sqlite3
 *.db
-
 .evn
 *.pyc
 *.pyo
 *.pyd
+virtual
 pretemplates
