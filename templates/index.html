@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% load static %}
+
+<!-- ----------------------------- Title Block ----------------------------- -->
+{% block title %} HOME {% endblock %}
+
+<!-- ------------------------------ CSS Block ------------------------------ -->
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+<!-- ----------------------------- Body Block ------------------------------ -->
+{% block body %}
+
+<!-- ---------------------------- BIG IMAGE DIV ---------------------------- -->
+<div id="image-container" class="image-container">
+  <img class="main-image" src="{% static 'images/backtree_crop.png' %}" alt="Main Image">
+  <div id="img-text" class="img-text">
+    <p>We provide</p>
+    <h1>Trust-based partnerships by providing a searchable platoform of peer-reviewed Grassroots.</h1>
+    <button>Learn More</button>
+  </div>
+</div>
+
+<!-- ------------------------- SHOWCASE CARDS DIV -------------------------- -->
+<div id="showcase-cards" class="showcase-cards">
+  <div class="card1" id="card1">
+    <div class="inner"></div>
+    <h2 class="card-text">Org of the month</h2>
+    <button class="card-btn">View More</button>
+  </div>
+  <div class="card2" id="card2">
+    <div class="inner"></div>
+    <h2 class="card-text">Funder of the month</h2>
+    <button class="card-btn">View More</button>
+  </div>
+</div>
+
+<!-- ---------------------------- ABOUT US DIV ----------------------------- -->
+<div class="aboutus-div" id="aboutus-div">
+  <h4>About us</h4>
+  <h2>Our commitment lies in the unwavering pursuit of truth</h2>
+  <button>Our vision</button>
+  <button>Our mission</button>
+  <button>Our values</button>
+  <button>The Journey of Trustroots</button>
+  <p id="vision">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic ratione consequuntur quod
+    quibusdam nisi? Ab nulla alias reiciendis, debitis eligendi rerum corrupti quas, aperiam dolor in suscipit! Et,
+    error!</p>
+  <button class="read-more" id="read-more">Read More</button>
+</div>
+
+<!-- -------------------------- WORK WITH US DIV --------------------------- -->
+<div class="work-with-us" id="work-with-us">
+  <h2>WORK WITH US</h2>
+  <div class="children-div">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+</div>
+
+
+<!-- -------------------------- SUPPORTED BY DIV --------------------------- -->
+<div class="supportedby-div" id="supportedby-div">
+  <h2>SUPPORTED BY</h2>
+  <div class="org-logos" id="org-logo">
+    <img class="support-logo" src="{% static 'images/amani-institute.png' %}" alt="a">
+    <img class="support-logo" src="{% static 'images/athari-group.png' %}" alt="a">
+  </div>
+</div>
+
+<!-- ------------------------------- FOOTER -------------------------------- -->
+<footer>
+  <div class="footer-main" id="footer-main">
+    <img class="footer-logo" src="{% static 'images/trn_logo.png' %}" alt="Logo">
+    <p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate nesciunt voluptatibus ipsam
+      minima corrupti
+      quidem corporis quia maiores labore nobis! Eos quo inventore quos est optio dolorum ab ea aspernatur?</p>
+    <ul class="customer-care-links" id="customer-care-links">
+      <li>Help Center</li>
+      <li>Terms & Conditions</li>
+      <li>Privacy Policy</li>
+      <li>Returns & Refunds</li>
+      <li>Surveys & Feedbacks</li>
+    </ul>
+    <ul class="pages-links" id="pages-links">
+      <li>About Us</li>
+      <li>contact Us</li>
+      <li>Services</li>
+      <li>Blog</li>
+    </ul>
+    <!-- <form class="search-area" action="">
+      <input type="text" name="search-bar" id="search-bar" placeholder="Search" />
+      <button id="search-icon" class="search-icon" type="submit">
+        <img width="16em" src="{% static 'images/search.svg' %}" alt="" />
+      </button>
+    </form> -->
+  </div>
+
+</footer>
+
+
+
+{% endblock %}
+
+<!-- ---------------------------- Script block ----------------------------- -->
+{% block script %} {% endblock %}

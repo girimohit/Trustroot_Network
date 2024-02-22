@@ -1,8 +1,9 @@
-# myapp/urls.py
-
+# authentication/urls.py
 from django.urls import path
-from authentication import views
+from authentication.views import register_user, login_user
 
+app_name = "accounts"
 urlpatterns = [
-    # Define more URL patterns as needed
+    path("register/", register_user, name="register_user"),
+    path("login/", login_user, name="login_user"),
 ]
