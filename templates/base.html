@@ -26,8 +26,6 @@
           <span><img class="logo" src="{% static 'images/youtube_logo.svg' %}" alt="youtube" /></span>
           <span><img class="logo" src="{% static 'images/linkedin_logo.svg' %}" alt="linkedin" /></span>
         </div>
-
-
       </div>
 
       <nav>
@@ -42,105 +40,67 @@
             <li><a href="#">Grassroots</a></li>
             <li><a href="#">Work with us</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a id="LoginBtn" href="#">Login/SignUp</a></li>
+            <li>
+              <a id="login-signup-btn" href="javascript:void(0);">Login/SignUp</a>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <div id="page-content" class="page-content">
+    <div id=" page-content" class="page-content">
       {% block body %} {% endblock %}
     </div>
-
   </div>
 
+  <!-- ------------------------------ FORM DIV ------------------------------- -->
+  <div id="outer-form-div">
+    <div class="center-container" id="inner-form-div">
+      <img class="icon" src="{% static 'images/trn_logo.svg' %}" alt="" />
+      <br /><br />
+      <form method="post" id="login-form">
+        {% csrf_token %}
+        <input type="text" name="Name" placeholder="Name" />
+        <br /><br />
+        <input type="email" name="City" placeholder="Email" />
+        <br /><br />
+        <input type="password" name="City" placeholder="Password" />
+        <br /><br />
+        <input type="submit" class="submit-btn" id="SubmitBtn" value="Login" />
+      </form>
 
-  <!-- <div id="desktop-navbar" class="desktop-navbar">
-      <span
-        ><img class="icon" src="{% static 'images/trnlogo.svg' %}" alt="TRN"
-      /></span>
-      <ul class="navlist">
-        <li><a id="Home" href="{% url 'homePage' %}">Home</a></li>
-        <li><a id="About" href="{% url 'aboutPage' %}">About Us</a></li>
-        <li><a id="Donate" href="">Donate</a></li>
-        <li><a id="LoginBtn" href="javascript:void(0);">Login</a></li>
-        <li>
-          <form class="search-area" action="">
-            <input
-              type="text"
-              name="search-bar"
-              id="search-bar"
-              placeholder="Search"
-            />
-            <button id="search-icon" class="search-icon" type="submit">
-              <img width="16em" src="{% static 'images/search.svg' %}" alt="" />
-            </button>
-          </form>
-        </li>
-      </ul>
-    </div>
+      <form method="post" id="signup-form" class="signup-form hidden">
+        {% csrf_token %}
+        <input type="text" name="FullName" placeholder="Full Name" />
+        <br /><br />
+        <input type="email" name="Email" placeholder="Email" />
+        <br /><br />
+        <input type="password" name="Password" placeholder="Password" />
+        <br /><br />
+        <input type="password" name="Password" placeholder="Cofirm Password" />
+        <br /><br />
+        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
+      </form> 
 
-    <div class="mobile-navbar" id="mobile-navbar">
-      <span class="mobile-navbar-icon" id="mobile-navbar-icon">
-        <img
-          width="25px"
-          src="{% static 'images/trnlogo.svg' %}"
-          alt="Navigation Bar"
-        />
+      <form method="post" id="signup-form" class="signup-form hidden">
+        {% csrf_token %}
+        {{ signform.as_p }}
+        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
+      </form>
+
+      <br /><br />
+      <span><a href="#">Forgot Password?</a></span>
+      <span>
+        <span id="is-account">Don't have an account?</span>
+        <span><a href="#" id="SignUpLink">Sign Up</a> </span>
       </span>
-      <div class="mobile-links">
-        <a href="{% url 'homePage' %}">Home</a>
-        <a href="{% url 'aboutPage' %}">About Us</a>
-        <a href="">Donate</a>
-        <a href="">Login</a>
-      </div>
     </div>
+  </div>
 
-    <div id="OuterFormDiv">
-      <div class="center-container" id="innerFormDiv">
-        <img class="icon" src="{% static 'images/trnlogo.svg' %}" alt="" />
-        <br /><br />
-        <form method="post" id="LoginForm">
-          {% csrf_token %}
-          <input type="text" name="Name" placeholder="Name" />
-          <br /><br />
-          <input type="email" name="City" placeholder="Email" />
-          <br /><br />
-          <input type="password" name="City" placeholder="Password" />
-          <br /><br />
-          <input
-            type="submit"
-            class="submitBtn"
-            id="SubmitBtn"
-            value="Submit"
-          />
-        </form>
-
-        <form method="post" id="SignUpForm" class="signup-form hidden">
-          {% csrf_token %}
-          <input type="text" name="FullName" placeholder="Full Name" />
-          <br /><br />
-          <input type="email" name="Email" placeholder="Email" />
-          <br /><br />
-          <input type="password" name="Password" placeholder="Password" />
-          <br /><br />
-          <input
-            type="submit"
-            class="submitBtn"
-            id="SignUpBtn"
-            value="Sign Up"
-          />
-        </form>
-
-        <br /><br />
-        <span><a href="#">Forgot Password?</a></span>
-        <span
-          >Don't have an account?<a href="#" id="SignUpLink">Sign Up</a></span
-        >
-      </div>
-    </div> -->
   {% block script %} {% endblock %}
   <script src="{% static 'js/base.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 
 </html>

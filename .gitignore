@@ -7,4 +7,5 @@ venv
 *.pyo
 *.pyd
 virtual
+venv
 pretemplates

@@ -1,0 +1,204 @@
+/* ---------------------------------- FONT ---------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@200&display=swap");
+
+* {
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+/* ---------------------------- CUSTOM SCROLLBAR ---------------------------- */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #025b52;
+  border-radius: 50px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb :hover {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+}
+
+/* ---------------------------- MAIN PAGE CONTENT --------------------------- */
+.page-content {
+  padding-top: 60px;
+}
+
+/* --------------------------------- HEADER --------------------------------- */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+a {
+  color: #025b52;
+}
+
+/* ------------------------------- TOP BAR DIV ------------------------------ */
+.logo {
+  /* width: 1.5vmax; */
+  width: 1.6vw;
+  height: 1.6vw;
+  vertical-align: middle;
+}
+
+.top-bar {
+  background-color: #025b52;
+  color: white;
+  height: 60px;
+  padding: 0 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-top-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 2vw;
+  font-size: 1.1vw;
+}
+
+.right-top-bar {
+  display: flex;
+  gap: 1.2vw;
+}
+
+/* ------------------------------- Navbar Div ------------------------------- */
+
+nav {
+  background-color: transparent;
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 45px;
+  justify-content: center;
+}
+
+.navbar-div {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5vw;
+  padding: 0.5vw 2vw;
+}
+
+.nav-tabs {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1vw;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.nav-tabs li {
+  height: 100%;
+  font-weight: 700;
+}
+
+.nav-tabs a {
+  height: 100%;
+}
+
+.nav-tabs li a:hover {
+  font-size: 1.3vw;
+  transition: 0.2s;
+}
+
+#login-signup-btn {
+  background-color: #025b52;
+  color: white;
+  padding: 0.4vw 1.3vw;
+  border: none;
+  border-radius: 0.5vw;
+  font-weight: 300;
+}
+
+/* ----------------------------- FORM PROPERTIES ---------------------------- */
+#outer-form-div {
+  z-index: 10;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.527);
+  padding-top: 5vw;
+}
+
+#inner-form-div {
+  width: 25%;
+  padding: 1.5%;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  margin-top: 5%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw;
+  font-weight: 900;
+}
+
+#signup-form,
+#login-form {
+  color: black;
+  width: 90%;
+  font-weight: 900;
+  line-height: 1.6vw;
+}
+
+#signup-form input:not(#SignUpBtn),
+#login-form input:not(#SubmitBtn) {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 100%;
+  font-size: 1vw;
+  font-weight: 700;
+  color: black;
+}
+
+#signup-form input:not(#SignUpBtn),
+#login-form input:not(#SubmitBtn):focus {
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #dbb670;
+  color: #025b52;
+  padding: 3% 10%;
+  border: none;
+  width: 60%;
+  border-radius: 10px;
+  font-size: 1vw;
+  font-weight: 900;
+}
+
+.hidden {
+  display: none;
+}
