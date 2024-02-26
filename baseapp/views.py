@@ -1,15 +1,40 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpRequest, HttpResponse
+
+# from baseapp.forms import CustomUserCreationForm, CustomAuthenticationForm
+from authentication.forms import (
+    SignUpForm,
+    CustomAuthenticationForm,
+    GrassrootProfileForm,
+    DonorProfileForm,
+    CommunityUserProfileForm,
+)
+
+
+
+
+
+
 
 
 # Create your views here.
 def home(request):
-    form = UserCreationForm()
-    # context = {'signform' : form}
-    return render(request, 'index.html')
-
+    username = request.user.username
+    context = {
+        "registrationForm": SignUpForm(),
+        "loginForm": CustomAuthenticationForm(),
+        "username": username,
+        "grassroot": GrassrootProfileForm(),
+        "donor": DonorProfileForm(),
+        "community": CommunityUserProfileForm(),
+    }
+    return render(request, "index.html", context)
 
 
 def about(request):
     return render(request, "about_us.html")
+
+
+def post(request):
+    return render(request, "post.html")

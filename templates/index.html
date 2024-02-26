@@ -104,4 +104,17 @@
 {% endblock %}
 
 <!-- ---------------------------- Script block ----------------------------- -->
-{% block script %} {% endblock %}
+{% block script %}
+<script>
+  var workWithUsLink = document.getElementById('work-with-us-link');
+  workWithUsLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    var targetDiv = document.getElementById("work-with-us");
+    targetDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+
+</script>
+<script src="{% static 'js/jquery.js' %}"></script>
+
+{% endblock %}

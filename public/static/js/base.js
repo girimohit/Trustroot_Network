@@ -43,42 +43,111 @@ function toggleLinkText() {
       : "Don't have an account?";
 }
 
-// mobileNavIcon = document.getElementById("mobile-navbar-icon");
-// mobileNavIcon.addEventListener("click", function () {
-//   document.querySelector(".mobile-links").style.display =
-//     document.querySelector(".mobile-links").style.display === "flex"
-//       ? "none"
-//       : "flex";
+/* --------------------- FOR DYNAMICALLY FORM RENDERING --------------------- */
+// $(document).ready(function () {
+//   // Initially hide all the additional fields
+//   $(".additional-fields").hide();
+
+//   // Show the fields based on the selected radio button
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".additional-fields").hide();
+//     $("#" + userType + "-fields").show();
+//   });
 // });
 
-
-
-
-
-
-
-$(document).ready(function() {
-  $('#signup-form').submit(function(e) {
-      e.preventDefault(); // Prevent default form submission
-      
-      // Serialize form data
-      var formData = $(this).serialize();
-      
-      // Send AJAX request
-      $.ajax({
-          type: 'POST',
-          url: '{% url "register_user" %}', // Replace 'register_modal' with your actual URL name
-          data: formData,
-          success: function(response) {
-              // Handle success response
-              console.log(response);
-              // Optionally, you can close the modal or show a success message here
-          },
-          error: function(xhr, status, error) {
-              // Handle error response
-              console.error(xhr.responseText);
-              // Optionally, you can display an error message here
-          }
-      });
+$(document).ready(function () {
+  $(".user-specific-fields").hide();
+  $('input[type="radio"][name="userType"]').change(function () {
+    var userType = $(this).val();
+    $(".user-specific-fields").hide();
+    $("#" + userType + "-fields").show();
   });
 });
+
+// $(document).ready(function () {
+//   $(".user-specific-fields").hide();
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".user-specific-fields").hide().find(':input').prop('disabled', true);
+//     $("#" + userType + "-fields").show().find(':input').prop('disabled', false);
+//   });
+// });
+
+// $(document).ready(function () {
+//   $(".user-specific-fields").hide();
+
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".user-specific-fields").hide();
+
+//     $.ajax({
+//       url: '{% url "base:fetchFields" %}',
+//       type: "GET",
+//       data: {
+//         userType: userType,
+//       },
+//       success: function (data) {
+//         // $("#" + userType + "-fields")
+//         //   .html(data)
+//         //   .show();
+//         $("#get-field").htm(data);
+//       },
+//     });
+//   });
+// });
+
+// document.getElementById("grassroot-fields").querySelector("#id_org_name").disabled = true;
+// document.getElementById("grassroot-fields").querySelector("#id_description").disabled = true;
+
+// // document.getElementById("donor-fields").querySelector("#id_phone").disabled = true;
+// // document.getElementById("donor-fields").querySelector("#id_paymentMethod").disabled = true;
+// // document.getElementById("donor-fields").querySelector("#id_firmName").disabled = true;
+
+// document.getElementById("community-fields").querySelector("#id_fullName").disabled = true;
+// document.getElementById("community-fields").querySelector("#id_age").disabled = true;
+// document.getElementById("community-fields").querySelector("#id_location").disabled = true;
+
+// Function to disable all user-specific fields
+// function disableUserSpecificFields() {
+//   document
+//     .querySelectorAll(".user-specific-fields input")
+//     .forEach(function (input) {
+//       input.disabled = true;
+//     });
+// }
+
+// // Function to enable fields based on userType
+// function enableFieldsForUserType(userType) {
+//   // First, disable all fields
+//   disableUserSpecificFields();
+
+//   // Then, enable fields based on userType
+//   if (userType === "grassroot") {
+//     document
+//       .querySelectorAll("#grassroot-fields input")
+//       .forEach(function (input) {
+//         input.disabled = false;
+//       });
+//   } else if (userType === "donor") {
+//     document.querySelectorAll("#donor-fields input").forEach(function (input) {
+//       input.disabled = false;
+//     });
+//   } else if (userType === "community") {
+//     document
+//       .querySelectorAll("#community-fields input")
+//       .forEach(function (input) {
+//         input.disabled = false;
+//       });
+//   }
+// }
+
+// // Event listener for userType change
+// document.querySelectorAll('input[name="userType"]').forEach(function (radio) {
+//   radio.addEventListener("change", function () {
+//     enableFieldsForUserType(this.value);
+//   });
+// });
+
+// // Initially disable all fields
+// disableUserSpecificFields();

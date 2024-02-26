@@ -14,35 +14,33 @@
 <body>
   <div id="main" class="main">
     <header>
-      <div class="top-bar" id="top-bar">
-        <div class="left-top-bar">
-          <span>+9105243200202</span>
-          <span>Trustroot@info.org</span>
-        </div>
-        <div class="right-top-bar">
-          <span><img class="logo" src="{% static 'images/fb_logo.svg' %}" alt="facebook" /></span>
-          <span><img class="logo" src="{% static 'images/x_logo.svg' %}" alt="twitter" /></span>
-          <span><img class="logo" src="{% static 'images/insta_logo.svg' %}" alt="instagram" /></span>
-          <span><img class="logo" src="{% static 'images/youtube_logo.svg' %}" alt="youtube" /></span>
-          <span><img class="logo" src="{% static 'images/linkedin_logo.svg' %}" alt="linkedin" /></span>
-        </div>
-      </div>
-
       <nav>
         <div class="navbar-div">
           <ul class="nav-tabs">
             <li>
               <img width="40vw" src="{% static 'images/trn_logo.png' %}" alt="logo" />
             </li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'base:homePage' %}">Home</a></li>
+            <li><a href="{% url 'base:aboutPage' %}">About</a></li>
             <li><a href="#">Funders</a></li>
             <li><a href="#">Grassroots</a></li>
-            <li><a href="#">Work with us</a></li>
+            <li><a href="{% url 'base:homePage' %}" id="work-with-us-link">Work with us</a></li>
             <li><a href="#">Contact</a></li>
-            <li>
-              <a id="login-signup-btn" href="javascript:void(0);">Login/SignUp</a>
-            </li>
+
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'accounts:logout_user' %}"><img width="35vw"
+                  src="{% static 'images/profile-icon.svg' %}" alt=""></a>{{ username }}</li>
+
+
+
+
+
+
+
+            {% else %}
+            <li><a id="login-signup-btn" href="javascript:void(0);">Login/SignUp</a></li>
+            {% endif %}
+
           </ul>
         </div>
       </nav>
@@ -53,39 +51,56 @@
     </div>
   </div>
 
+
   <!-- ------------------------------ FORM DIV ------------------------------- -->
   <div id="outer-form-div">
     <div class="center-container" id="inner-form-div">
       <img class="icon" src="{% static 'images/trn_logo.svg' %}" alt="" />
       <br /><br />
-      <form method="post" id="login-form">
+
+      <!-- ---------------------------- SIGN UP FORM ----------------------------- -->
+      <form method="POST" id="signup-form" class="signup-form hidden" action="{% url 'accounts:register_user' %}">
         {% csrf_token %}
-        <input type="text" name="Name" placeholder="Name" />
-        <br /><br />
-        <input type="email" name="City" placeholder="Email" />
-        <br /><br />
-        <input type="password" name="City" placeholder="Password" />
-        <br /><br />
-        <input type="submit" class="submit-btn" id="SubmitBtn" value="Login" />
+        <div id="radio-btn" class="radio-btn">
+          <input type="radio" name="userType" id="grassroot" value="grassroot">Grassroot
+          <input type="radio" name="userType" id="donor" value="donor">Donor
+          <input type="radio" name="userType" id="community" value="community">Community
+        </div>
+        {{ registrationForm.username }}
+        {{ registrationForm.password1 }}
+        {{ registrationForm.password2 }}
+        {{ registrationForm.email }}
+
+        <div id="grassroot-fields" class="grassroot-fields user-specific-fields">
+          {{ grassroot.org_name }}
+          {{ grassroot.description }}
+        </div>
+
+        <div id="donor-fields" class="donor-fields user-specific-fields">
+          {{ donor.phone }}
+          {{ donor.paymentMethod }}
+          {{ donor.firmName }}
+        </div>
+
+        <div id="community-fields" class="community-fields user-specific-fields">
+          {{ community.fullName }}
+          {{ community.age }}
+          {{ community.location }}
+        </div>
+
+
+
+        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
       </form>
 
-      <form method="post" id="signup-form" class="signup-form hidden">
-        {% csrf_token %}
-        <input type="text" name="FullName" placeholder="Full Name" />
-        <br /><br />
-        <input type="email" name="Email" placeholder="Email" />
-        <br /><br />
-        <input type="password" name="Password" placeholder="Password" />
-        <br /><br />
-        <input type="password" name="Password" placeholder="Cofirm Password" />
-        <br /><br />
-        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
-      </form> 
 
-      <form method="post" id="signup-form" class="signup-form hidden">
+      <!-- ----------------------------- LOGIN FORM ------------------------------ -->
+      <form method="post" id="login-form" action="{% url 'accounts:login_user' %}">
         {% csrf_token %}
-        {{ signform.as_p }}
-        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
+        {{ loginForm.username }}
+        <br /><br />
+        {{ loginForm.password }}
+        <input type="submit" class="submit-btn" id="SubmitBtn" value="Login" />
       </form>
 
       <br /><br />
@@ -99,8 +114,9 @@
 
   {% block script %} {% endblock %}
   <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'js/jquery.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+  <script></script>
 </body>
 
 </html>

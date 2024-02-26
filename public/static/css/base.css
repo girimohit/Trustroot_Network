@@ -85,17 +85,17 @@ a {
 
 nav {
   background-color: transparent;
-  width: 75%;
+  width: 100%;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 45px;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  /* top: 45px; */
   justify-content: center;
 }
 
 .navbar-div {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: #025b52;
   border-radius: 0.5vw;
   padding: 0.5vw 2vw;
 }
@@ -114,10 +114,13 @@ nav {
 .nav-tabs li {
   height: 100%;
   font-weight: 700;
+  color: white;
 }
 
 .nav-tabs a {
+  color: wheat;
   height: 100%;
+  text-decoration: none;
 }
 
 .nav-tabs li a:hover {
@@ -126,12 +129,12 @@ nav {
 }
 
 #login-signup-btn {
-  background-color: #025b52;
-  color: white;
+  color: #025b52;
+  background-color: white;
   padding: 0.4vw 1.3vw;
   border: none;
   border-radius: 0.5vw;
-  font-weight: 300;
+  font-weight: 700;
 }
 
 /* ----------------------------- FORM PROPERTIES ---------------------------- */
@@ -146,7 +149,7 @@ nav {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.527);
-  padding-top: 5vw;
+  padding-top: 1vw;
 }
 
 #inner-form-div {
@@ -154,7 +157,7 @@ nav {
   padding: 1.5%;
   background-color: #d9d9d9;
   border-radius: 20px;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -180,6 +183,7 @@ nav {
   width: 100%;
   font-size: 1vw;
   font-weight: 700;
+  margin: 0.8vw 0;
   color: black;
 }
 
@@ -202,3 +206,15 @@ nav {
 .hidden {
   display: none;
 }
+
+/* ------------------------------- SIGNUP FORM ------------------------------ */
+.radio-btn {
+  display: flex;
+  flex-direction: row;
+  padding: 2vw 0.5vw;
+  background-color: transparent;
+}
+
+
+
+/* ------------------------------- AFTER LOGIN ------------------------------ */
