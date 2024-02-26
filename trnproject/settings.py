@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -125,8 +126,9 @@ STATICFILES_DIRS = [BASE_DIR / "public/static"]
 
 
 # Media files
+# MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 MEDIA_URL = "media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
+MEDIA_ROOT = BASE_DIR / "public/media"
 
 
 # Default primary key field type
@@ -136,8 +138,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # settings.py
 
-AUTH_USER_MODEL = 'authentication.CustomUser'
-
+AUTH_USER_MODEL = "authentication.CustomUser"
 
 
 # # --------------------------- EMAIL BACKEND CONFIG --------------------------- #

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Profile Page
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/grassroot.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="relative">
+        <img class="banner-img" src="{% static 'images/backtree_crop.png' %}" alt="grassroot profile image">
+        <img class="logo" src="{% static 'images/trn_logo.png' %}" alt="logo">
+        <img class="notification-bell" src="{% static 'images/notification_bell.svg' %}" alt="">
+        <span class="three-dot">&vellip;</span>
+    </div>
+    <div class="text-center">
+        <h1 class="org-name">Trustroot</h1>
+        <h5 class="org-description">At TrustRoots Network, our vision is to cultivate a paradigm shift in the aid and
+            philanthropy sector. We aspire to build a community wher trust-based partnerships thrive, facilitated by our
+            platfrom offering searchable, peer-reviewed grasswroots initiatives.</h5>
+        <button class="follow-btn">Follow</button>
+    </div>
+</div>
+
+{% endblock %}

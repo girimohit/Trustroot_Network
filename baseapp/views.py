@@ -10,6 +10,7 @@ from authentication.forms import (
     DonorProfileForm,
     CommunityUserProfileForm,
 )
+from authentication.models import GrassrootProfile
 
 
 # Create your views here.
@@ -35,4 +36,14 @@ def post(request):
 
 
 def grassroot(request):
-    return render(request, "grassroot.html")
+    # profiles = GrassrootProfile.objects.get(id=1)
+    profiles = GrassrootProfile.objects.all()
+    for i in profiles:
+        print(i.org_name)
+        print(i.profile_icon.url)
+    context = {"profiles": profiles}
+    return render(request, "grassroot.html", context=context)
+
+
+def grassroot_profile(request):
+    return render(request, "grassroot_profile.html")

@@ -22,14 +22,40 @@
 
 
 <div id="main-profile-div">
-    
+
     <div id="profile prof-head" style="font-size: 3vw;" class="profile">
         <h1>GRASSROOTS</h1>
     </div>
 
 
 
+    {% for i in profiles %}
     <div id="profile" class="profile">
+        <div id="info" class="info">
+            <div id="profile-icon-div" class="profile-icon-div">
+                <img class="profile-icon" src="{% static 'images/profile-icon.svg' %}" alt="{{ i.org_name }}" />
+                <!-- <img class="profile-icon" src="{{ MEDIA_URL }}grassroot_profile_icons/engo.jpg" alt="{{ i.org_name }}" />
+                <img src="/public//media/grassroot_profile_icons/engo.jpg" alt="">
+                <img src="/public/static/images/backtree_crop.png" alt=""> -->
+            </div>
+            <div id="person-info" class="person-info">
+                <h5>{{ i.org_name }}</h5>
+                <p>{{ i.contact_number }}</p>
+                <p>{{ i.location }}</p>
+            </div>
+        </div>
+        <div id="viewer-action" class="viewer-action">
+            <h6>Message</h6>
+            <a href="{% url 'base:grassroot_profile' %}">
+                <h6>More Info</h6>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    
+
+
+    <!-- <div id="profile" class="profile">
         <div id="info" class="info">
             <div id="profile-icon-div" class="profile-icon-div">
                 <img class="profile-icon" src="{% static 'images/profile-icon.svg' %}" alt="" />
@@ -156,23 +182,7 @@
             <h6>Message</h6>
             <h6>More Info</h6>
         </div>
-    </div>
-    <div id="profile" class="profile">
-        <div id="info" class="info">
-            <div id="profile-icon-div" class="profile-icon-div">
-                <img class="profile-icon" src="{% static 'images/profile-icon.svg' %}" alt="" />
-            </div>
-            <div id="person-info" class="person-info">
-                <h5>Red Cross</h5>
-                <p>123-456-7890</p>
-                <p>Global</p>
-            </div>
-        </div>
-        <div id="viewer-action" class="viewer-action">
-            <h6>Message</h6>
-            <h6>More Info</h6>
-        </div>
-    </div>
+    </div> -->
 </div>
 
 

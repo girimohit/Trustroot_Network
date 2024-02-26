@@ -201,3 +201,123 @@ tr:nth-child(-2){
 .prof-head h1 {
     font-size: 16vw;
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                         GRASSROOT PROFILE PAGE CSS                         */
+/* -------------------------------------------------------------------------- */
+/* @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@200&display=swap");
+
+* {
+  font-family: "Fira Sans Condensed", sans-serif;
+} */
+
+.container {
+    max-width: 1140px;
+    /* margin-right: auto;
+    margin-left: 5%; */
+    padding-left: 1rem;
+    padding-top: 3rem;
+    padding: 0rem 0 3rem 0;
+    border-radius: 1rem 1rem 0 0;
+    border: 1px solid #c2c1c1;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* margin-top: 4vw; */
+    margin: 3vw 1vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.relative {
+    position: relative;
+}
+
+.banner-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    background-color: white;
+    position: absolute;
+    top: 95%;
+    transform: translateY(-50%);
+    left: 1rem;
+    width: 16%;
+    height: auto;
+    border-radius: 50%;
+    border: 0.2rem solid #ffffff;
+}
+
+.notification-bell {
+    position: absolute;
+    top: 100%;
+    right: 4rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.three-dot {
+    position: absolute;
+    top: 100%;
+    right: 0rem;
+    width: 4rem;
+    text-align: center;
+    height: 4rem;
+    font-size: 2rem;
+}
+
+.text-center {
+    padding-top: 8%;
+    text-align: left;
+    padding-left: 3%;
+}
+
+.org-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.org-description {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.follow-btn {
+    display: inline-block;
+    background-color: #02796d;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem 0;
+}
+
+.follow-btn:hover {
+    background-color: #024841;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        margin: 01vw;
+    }
+    .logo {
+        width: 35%;
+        left: 0.7rem;
+    }
+
+    .text-center {
+        padding-top: 15%;
+    }
+}
