@@ -12,12 +12,6 @@ from authentication.forms import (
 )
 
 
-
-
-
-
-
-
 # Create your views here.
 def home(request):
     username = request.user.username
@@ -38,3 +32,7 @@ def about(request):
 
 def post(request):
     return render(request, "post.html")
+
+
+def grassroot(request):
+    return render(request, "grassroot.html")

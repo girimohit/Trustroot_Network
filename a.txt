@@ -1,0 +1,5 @@
+worldmap on clicking the funders and grassroot
+search bar with some filters
+create profile page and then show the post only there
+faq page
+peer learning 

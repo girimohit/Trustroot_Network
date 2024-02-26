@@ -20,8 +20,8 @@ from authentication.models import (
 
 def register_user(request):
     if request.method == "POST":
-        base_form = SignUpForm(request.POST)
         user_type = request.POST.get("userType")
+        base_form = SignUpForm(request.POST)
         if user_type == "grassroot":
             form = GrassrootProfileForm(request.POST)
         elif user_type == "community":
@@ -40,18 +40,16 @@ def register_user(request):
             profile.save()
             # Automatic Login
             login(request=request, user=user)
-            return redirect(
-                "base:homePage"
-            )  # Redirect to the about page upon successful registration
+            return redirect("base:homePage")
         else:
             return HttpResponse("Error Occurred!")
     else:
         context = {
             "registrationForm": SignUpForm(),
-            "loginForm": CustomAuthenticationForm(),
-            "grassroot": GrassrootProfileForm(),
-            "donor": DonorProfileForm(),
-            "community": CommunityUserProfileForm(),
+            # "loginForm": CustomAuthenticationForm(),
+            # "grassroot": GrassrootProfileForm(),
+            # "donor": DonorProfileForm(),
+            # "community": CommunityUserProfileForm(),
         }
         return render(request, "index.html", context=context)
 

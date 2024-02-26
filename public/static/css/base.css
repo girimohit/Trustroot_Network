@@ -96,7 +96,7 @@ nav {
 .navbar-div {
   width: 100%;
   background-color: #025b52;
-  border-radius: 0.5vw;
+  /* border-radius: 0.5vw; */
   padding: 0.5vw 2vw;
 }
 
