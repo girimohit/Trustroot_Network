@@ -5,7 +5,7 @@
     flex-direction: column;
     height: 95%;
     margin-top: 3vw;
-    padding: 1vw;
+    padding: 1vw auto;
 }
 
 .inner-map-container {
@@ -18,78 +18,6 @@
     padding: 1% 0 0 0;
 }
 
-
-
-/* ----------------------------- VEHICLE SUPPORT ---------------------------- */
-#register-btn {
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    position: fixed;
-    top: 15%;
-    left: 87%;
-    padding: 0.2vw 1.6vw;
-}
-
-.register-vehicle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 3vw 4vw;
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    /* border: 1px solid black; */
-    color: white;
-    border-radius: 35px;
-}
-
-#register-vehicle input {
-    border: none;
-    background-color: transparent;
-    border-bottom: 1px solid #000000;
-    margin: 1vw 0;
-    color: white;
-}
-
-#register-vehicle input:focus {
-    outline: none;
-    color: white;
-}
-
-#register-vehicle button {
-    background-color: black;
-    color: white;
-    width: 33%;
-    border: none;
-    border-radius: 20px;
-    padding: 0 0.3vw;
-    margin: auto;
-    font-size: 1vw;
-}
-
-#outer-modal-div {
-    background-color: rgba(0, 0, 0, 0.396);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: flex-start;
-    z-index: 100;
-    padding-top: 7vw;
-}
-
-/* .glassy-div {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-} */
-
-
 .glassy-div {
     background-color: rgba(0, 0, 0, 0.552);
     backdrop-filter: blur(8px);
@@ -99,40 +27,13 @@
 
 
 
-table {
-    width: 75%;
-    margin-top: 8vw;
-    text-align: center;
-}
-
-td {
-    width: 40%;
-    background-color: rgba(0, 0, 0, 0.14);
-    color: black;
-    border: 1px solid black;
-    text-align: center;
-}
-
-thead {
-    background-color: black;
-    color: white;
-}
-
-tr {
-    width: 100%;
-    height: 5vw;
-}
-
-/* 
-tr:nth-child(-2){
-    background-color: green;
-} */
 #main-profile-div {
     margin-top: 8vmax;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5vw;
 }
 
 #profile {
@@ -192,10 +93,11 @@ tr:nth-child(-2){
 
 
 
-.prof-head {
+#prof-head {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* background-color: black; */
 }
 
 .prof-head h1 {
@@ -309,9 +211,10 @@ tr:nth-child(-2){
 }
 
 @media screen and (max-width: 768px) {
-    .container{
+    .container {
         margin: 01vw;
     }
+
     .logo {
         width: 35%;
         left: 0.7rem;

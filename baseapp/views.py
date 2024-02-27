@@ -47,3 +47,7 @@ def grassroot(request):
 
 def grassroot_profile(request):
     return render(request, "grassroot_profile.html")
+
+
+def faq(request):
+    return render(request, "faq.html")

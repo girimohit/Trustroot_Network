@@ -38,9 +38,7 @@ function toggleLinkText() {
   var innerText = textBelowForm.textContent;
   signuplink.textContent = linkText === "Sign Up" ? "Login" : "Sign Up";
   textBelowForm.textContent =
-    innerText === "Don't have an account?"
-      ? "Already have an Account?"
-      : "Don't have an account?";
+    innerText === "Don't have an account?" ? "Already have an Account?" : "Don't have an account?";
 }
 
 /* --------------------- FOR DYNAMICALLY FORM RENDERING --------------------- */
@@ -62,6 +60,24 @@ $(document).ready(function () {
     var userType = $(this).val();
     $(".user-specific-fields").hide();
     $("#" + userType + "-fields").show();
+  });
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                FOR FAQ PAGE                                */
+/* -------------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach((question) => {
+    question.addEventListener("click", function () {
+      const answer = this.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    });
   });
 });
 

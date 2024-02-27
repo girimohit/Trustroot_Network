@@ -26,6 +26,7 @@
             <li><a href="{% url 'base:grassrootPage' %}">Grassroots</a></li>
             <li><a href="{% url 'base:homePage' %}" id="work-with-us-link">Work with us</a></li>
             <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'base:faq_page' %}" id="faq">FAQs</a></li>
 
             {% if user.is_authenticated %}
             <li><a href="{% url 'accounts:logout_user' %}"><img width="35vw"
