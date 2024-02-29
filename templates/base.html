@@ -27,6 +27,7 @@
             <li><a href="{% url 'base:homePage' %}" id="work-with-us-link">Work with us</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="{% url 'base:faq_page' %}" id="faq">FAQs</a></li>
+            <!-- <li><a href="{% url 'accounts:register_user' %}">AJAX</a></li> -->
 
             {% if user.is_authenticated %}
             <li><a href="{% url 'accounts:logout_user' %}"><img width="35vw"
@@ -67,6 +68,11 @@
           <input type="radio" name="userType" id="donor" value="donor">Donor
           <input type="radio" name="userType" id="community" value="community">Community
         </div>
+
+
+        <div id="extra-fields" class="extra-fiedls"></div>
+
+
         {{ registrationForm.username }}
         {{ registrationForm.password1 }}
         {{ registrationForm.password2 }}
@@ -75,6 +81,9 @@
         <div id="grassroot-fields" class="grassroot-fields user-specific-fields">
           {{ grassroot.org_name }}
           {{ grassroot.description }}
+          {{ grassroot.focus_area }}
+          {{ grassroot.location }}
+          {{ grassroot.sdg }}
         </div>
 
         <div id="donor-fields" class="donor-fields user-specific-fields">
@@ -87,7 +96,7 @@
           {{ community.fullName }}
           {{ community.age }}
           {{ community.location }}
-        </div>
+        </div> 
 
 
 
@@ -115,6 +124,7 @@
 
   {% block script %} {% endblock %}
   <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'js/auth_form.js' %}"></script>
   <script src="{% static 'js/jquery.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script></script>

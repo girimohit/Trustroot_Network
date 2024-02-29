@@ -12,6 +12,7 @@ urlpatterns = [
     path("grassroots/", views.grassroot, name="grassrootPage"),
     path("grassroot-profile/", views.grassroot_profile, name="grassroot_profile"),
     path("frequently-asked-questions/", views.faq, name="faq_page"),
+    path("save_grassroot/", views.save_grassroot, name="save_grassroot")
 ]
 
 # Serve media files during development

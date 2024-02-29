@@ -81,6 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/* ---------------- SAVE GRASSROOT PROFILE BY LOOGED IN USER ---------------- */
+function loginAlert(e) {
+  // alert("Please Login"); 
+  LoginBtn.click(function (e) {
+    e.preventDefault();
+    formDiv.style.display = "flex";
+  });
+}
+
 // $(document).ready(function () {
 //   $(".user-specific-fields").hide();
 //   $('input[type="radio"][name="userType"]').change(function () {

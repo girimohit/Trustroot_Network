@@ -24,10 +24,13 @@ class SignUpForm(UserCreationForm):
 class GrassrootProfileForm(forms.ModelForm):
     org_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Oganisation Name"}), max_length=30, required=True)
     description = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Describe Grassroot..."}))
+    focus_area = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "Focus Area"}))
+    location = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "Location"}))
+    sdg = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "SDG"}))
     
     class Meta:
         model = GrassrootProfile
-        fields = ("org_name", "description")
+        fields = ("org_name", "description", "focus_area", "location", "sdg")
 
 
 class DonorProfileForm(forms.ModelForm):

@@ -25,7 +25,12 @@ Profile Page
         <h5 class="org-description">At TrustRoots Network, our vision is to cultivate a paradigm shift in the aid and
             philanthropy sector. We aspire to build a community wher trust-based partnerships thrive, facilitated by our
             platfrom offering searchable, peer-reviewed grasswroots initiatives.</h5>
-        <button class="follow-btn">Follow</button>
+
+        {% if user.is_authenticated %}
+        <button class="save-grassroot-btn"><a href="{% url 'base:save_grassroot' %}">Save</a></button>
+        {% else %}
+        <button class="save-grassroot-btn" onclick="loginAlert()" class="save-grassroot-btn">Save</button>
+        {% endif %}
     </div>
 </div>
 

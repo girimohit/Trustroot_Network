@@ -36,12 +36,20 @@ def post(request):
 
 
 def grassroot(request):
+    grassroots = GrassrootProfile.objects.all()
+
+    location = request.GET.get("location")
+    focus_area = request.GET.get("focus_area")
+    sdg = request.GET.get("sdg")
     # profiles = GrassrootProfile.objects.get(id=1)
-    profiles = GrassrootProfile.objects.all()
-    for i in profiles:
-        print(i.org_name)
-        print(i.profile_icon.url)
-    context = {"profiles": profiles}
+    if location:
+        grassroots = grassroots.filter(location=location)
+    if focus_area:
+        grassroots = grassroots.filter(focus_area=focus_area)
+    if sdg:
+        grassroots = grassroots.filter(sdg=sdg)
+
+    context = {"grassroots": grassroots}
     return render(request, "grassroot.html", context=context)
 
 
@@ -51,3 +59,7 @@ def grassroot_profile(request):
 
 def faq(request):
     return render(request, "faq.html")
+
+
+def save_grassroot(request):
+    pass

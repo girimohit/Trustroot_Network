@@ -15,6 +15,7 @@ class GrassrootProfile(models.Model):
     focus_area = models.TextField(default="None", null=True, blank=True)
     location = models.CharField(max_length=200)
     contact_number = models.CharField(max_length=20, null=True, blank=True)
+    sdg = models.CharField(max_length=200, default="None")
 
     def __str__(self):
         return self.org_name

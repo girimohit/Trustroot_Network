@@ -192,7 +192,7 @@
     line-height: 1.4;
 }
 
-.follow-btn {
+.save-grassroot-btn {
     display: inline-block;
     background-color: #02796d;
     color: #ffffff;
@@ -206,7 +206,7 @@
     margin: 1rem 0;
 }
 
-.follow-btn:hover {
+.save-grassroot-btn:hover {
     background-color: #024841;
 }
 

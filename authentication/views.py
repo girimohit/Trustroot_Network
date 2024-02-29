@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponsePermanentRedirect, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -53,6 +53,28 @@ def register_user(request):
         }
         return render(request, "index.html", context=context)
 
+
+# def register_user(request):
+    # if request.method == "POST" and request.is_ajax():
+    #     selected_one = request.POST.get("selectedOne")
+
+    #     if selected_one == "grassroot":
+    #         form = GrassrootProfileForm()
+    #     elif selected_one == "donor":
+    #         form = DonorProfileForm()
+    #     elif selected_one == "community":
+    #         form = CommunityUserProfileForm()
+    #     else:
+    #         return HttpResponse("Invalid User")
+
+    #     # Render the form template with the form and return its HTML content
+    #     form_html = render(
+    #         request, "signup.html", {"form": form}
+    #     ).content.decode("utf-8")
+    #     return HttpResponse(form_html)
+    # else:
+    #     return HttpResponse("Bad request")
+    # return render(request, "auth/signup.html")
 
 # def register_user(request):
 #     if request.method == "POST":
