@@ -224,3 +224,27 @@
         padding-top: 15%;
     }
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                         GRASSROOT DROPDOWN PAGE CSS                         */
+/* -------------------------------------------------------------------------- */
+
+
+select{
+    background-color: green; 
+    color:rgb(238, 216, 200); 
+    border-radius:5px;
+    font-size: larger;
+    width: 200px;
+    height: 30px;
+}
+
+#gr-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+   
+    
+}

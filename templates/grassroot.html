@@ -13,10 +13,38 @@
 
 <div id="gr-filter" class="gr-filter">
     <form action="#">
-        <input type="text" name="location" id="location-filter-grassroot" placeholder="Location">
-        <input type="text" name="focus_area" id="focus-area" placeholder="Focus Area">
-        <input type="text" name="sdg" id="sdg" placeholder="SDG">
-        <input type="submit" value="Search">
+        <select name="location" id="location-filter-grassroot">
+            <option value="">Select Location</option>
+            <option value="South America">South America</option>
+            <option value="North America">North America</option>
+            <option value="India">India</option>
+        </select>
+        <select name="focus_area" id="focus-area">
+            <option value="">Select Focus Area</option>
+            <option value="Random1">Random1</option>
+            <option value="Random2">Random2</option>
+            <option value="Random3">Random3</option>
+        </select>
+        <select name="sdg" id="sdg">
+            <option value="">Select SDG</option>
+            <option value="1">No Poverty</option>
+            <option value="2">Zero Hunger</option>
+            <option value="3">Good Health and Well-being</option>
+            <option value="4">Quality Education</option>
+            <option value="5">Gender Equality</option>
+            <option value="6">Clean Water and Sanitation</option>
+            <option value="7">Affordable and Clean Energy</option>
+            <option value="8">Decent Work and Economic Growth</option>
+            <option value="9">Industry, Innovation, and Infrastructure</option>
+            <option value="10">Reduced Inequality</option>
+            <option value="11">Sustainable Cities and Communities</option>
+            <option value="12">Responsible Consumption and Production</option>
+            <option value="13">Climate Action</option>
+            <option value="14">Life Below Water</option>
+            <option value="15">Life on Land</option>
+            <option value="16">Peace, Justice, and Strong Institutions</option>
+            <option value="17">Partnerships for the Goals</option>
+        </select>
     </form>
 </div>
 
@@ -62,6 +90,17 @@
                 <p>Location</p>
             </div>
         </div>
+        <div id="profile" class="profile">
+            <div id="info" class="info">
+                <div id="profile-icon-div" class="profile-icon-div">
+                    <img class="profile-icon" src="{% static 'images/profile-icon.svg' %}" alt="{{ i.org_name }}" />
+                </div>
+                <div id="person-info" class="person-info">
+                    <h5>Organisation Name</h5>
+                    <p>conatact Number</p>
+                    <p>Location</p>
+                </div>
+            </div>
         <div id="viewer-action" class="viewer-action">
             <h6>Message</h6>
             <a href="{% url 'base:grassroot_profile' %}">
