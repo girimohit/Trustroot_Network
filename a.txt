@@ -1,0 +1,14 @@
+worldmap on clicking the funders and grassroot
+search bar with some filters
+create profile page and then show the post only there
+faq page
+peer learning 
+
+
+
+send usertype using ajax to a function at backend.
+this function will return the usertype 
+call this function in the main register_user function, get the form loaded according to user type.
+and send the form fields again to the frontend using Ajax
+
+once let the gpt check the context of homePage 

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body %}
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex accusamus repellat optio ratione in sunt voluptatem
+    laborum nesciunt molestiae illum? Laboriosam perspiciatis tenetur voluptatum fuga amet animi maxime iure deleniti
+    sit incidunt ducimus, reiciendis officiis provident quos explicabo minima itaque eos debitis ex soluta corrupti
+    voluptatem odit enim rem? Cumque suscipit tempora dicta voluptatum autem repellendus earum? Ducimus fugiat
+    architecto voluptates nihil molestiae minus quibusdam quaerat labore modi. Nihil harum esse quidem reiciendis eum
+    odit similique possimus delectus sed, sint architecto alias tempora quo sit. Dolore in reiciendis optio eum illo
+    harum cum velit quibusdam, natus rem ducimus nemo nesciunt!</p>
+
+<form action="#">
+    <div id="radio-btn" class="radio-btn">
+        <input type="radio" name="userType" id="grassroot" value="grassroot">Grassroot
+        <input type="radio" name="userType" id="donor" value="donor">Donor
+        <input type="radio" name="userType" id="community" value="community">Community
+    </div>
+</form>
+
+<div style="margin-top: 10vw;" id="outer-form-div">
+    <div class="center-container" id="inner-form-div">
+        <img class="icon" src="{% static 'images/trn_logo.svg' %}" alt="" />
+        <br /><br />
+
+        <!-- ---------------------------- SIGN UP FORM ----------------------------- -->
+        <form method="POST" id="signup-form" class="signup-form hidden" action="{% url 'accounts:register_user' %}">
+            {% csrf_token %}
+            <div id="radio-btn" class="radio-btn">
+                <input type="radio" name="userType" id="grassroot" value="grassroot">Grassroot
+                <input type="radio" name="userType" id="donor" value="donor">Donor
+                <input type="radio" name="userType" id="community" value="community">Community
+            </div>
+
+
+
+            {{ registrationForm.username }}
+            {{ registrationForm.password1 }}
+            {{ registrationForm.password2 }}
+            {{ registrationForm.email }}
+
+
+            <div id="extra-fields" class="extra-fields">
+
+            </div>
+
+            <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
+        </form>
+
+
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                               LOGIN FORM                                -->
+        <!-- ----------------------------------------------------------------------- -->
+        <form method="post" id="login-form" action="{% url 'accounts:login_user' %}">
+            {% csrf_token %}
+            {{ loginForm.username }}
+            <br /><br />
+            {{ loginForm.password }}
+            <input type="submit" class="submit-btn" id="SubmitBtn" value="Login" />
+        </form>
+
+        <br /><br />
+        <span><a href="#">Forgot Password?</a></span>
+        <span>
+            <span id="is-account">Don't have an account?</span>
+            <span><a href="#" id="SignUpLink">Sign Up</a> </span>
+        </span>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+{% block script %}
+
+<script src="{% static 'js/auth_form.js' %}"></script>
+{% endblock script %}

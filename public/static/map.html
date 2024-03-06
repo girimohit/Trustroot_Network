@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([28.6139, 77.209], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add random markers
+        var markers = [
+            [28.5907, 77.2315], // Delhi, India
+            [28.5849, 77.2214], // Delhi, India
+            [28.572, 77.2011],  // Delhi, India
+            [28.5586, 77.2775], // Delhi, India
+            [28.5812, 77.2631], // Delhi, India
+            [51.5074, -0.1278], // London, UK
+            [48.8566, 2.3522],  // Paris, France
+            [40.7128, -74.0060], // New York, USA
+            [-33.8688, 151.2093], // Sydney, Australia
+            [-22.9068, -43.1729], // Rio de Janeiro, Brazil
+            [37.7749, -122.4194], // San Francisco, USA
+            [35.6895, 139.6917],  // Tokyo, Japan
+            [-22.9519, -43.2105], // Rio de Janeiro, Brazil
+            [55.7558, 37.6173],   // Moscow, Russia
+            [55.6761, 12.5683],   // Copenhagen, Denmark
+            [48.1351, 11.5820],   // Munich, Germany
+            [19.4326, -99.1332],  // Mexico City, Mexico
+            [37.5665, 126.9780],  // Seoul, South Korea
+            [-37.8136, 144.9631], // Melbourne, Australia
+            [25.2048, 55.2708],   // Dubai, UAE
+            [-33.4489, -70.6693], // Santiago, Chile
+            [-34.6037, -58.3816], // Buenos Aires, Argentina
+            [34.0522, -118.2437], // Los Angeles, USA
+            [39.9042, 116.4074],  // Beijing, China
+            [41.9028, 12.4964],   // Rome, Italy
+        ];
+
+        for (var i = 0; i < markers.length; i++) {
+            L.marker(markers[i]).addTo(map);
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- // ------------------------------- MARKER -------------------------------- //
+var marker_b8cb3db93c79cc499914cebb6ffc0c98 = L.marker(
+    [28.5812, 77.2631],
+    {}
+).addTo(map_fd779d1b9fde9c9c903f082e8b9ecb75);
+var icon_1aa310faecc43aab8a6b757cd00a4382 = L.AwesomeMarkers.icon({
+    extraClasses: "fa-rotate-0",
+    icon: "info-sign",
+    iconColor: "white",
+    markerColor: "green",
+    prefix: "glyphicon",
+});
+marker_b8cb3db93c79cc499914cebb6ffc0c98.setIcon(
+    icon_1aa310faecc43aab8a6b757cd00a4382
+);
+
+var popup_74cd9302a37d8d3951b57dc0ebdd00b7 = L.popup({ maxWidth: "100%" });
+
+var html_954e6103cc1a4a24896a766b74ab9882 = $(
+    `<div id="html_954e6103cc1a4a24896a766b74ab9882" style="width: 100.0%; height: 100.0%;">Garbage Zone 2</div>`
+)[0];
+popup_74cd9302a37d8d3951b57dc0ebdd00b7.setContent(
+    html_954e6103cc1a4a24896a766b74ab9882
+);
+
+marker_b8cb3db93c79cc499914cebb6ffc0c98.bindPopup(popup_74cd9302a37d8d3951b57dc0ebdd00b7).on("click", function (e) {
+    window.open("https://www.google.com/maps/@28.5812,77.2631,19z?entry=ttu", "_blank");
+})
+</script> -->

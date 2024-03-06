@@ -38,47 +38,141 @@ function toggleLinkText() {
   var innerText = textBelowForm.textContent;
   signuplink.textContent = linkText === "Sign Up" ? "Login" : "Sign Up";
   textBelowForm.textContent =
-    innerText === "Don't have an account?"
-      ? "Already have an Account?"
-      : "Don't have an account?";
+    innerText === "Don't have an account?" ? "Already have an Account?" : "Don't have an account?";
 }
 
-// mobileNavIcon = document.getElementById("mobile-navbar-icon");
-// mobileNavIcon.addEventListener("click", function () {
-//   document.querySelector(".mobile-links").style.display =
-//     document.querySelector(".mobile-links").style.display === "flex"
-//       ? "none"
-//       : "flex";
+/* --------------------- FOR DYNAMICALLY FORM RENDERING --------------------- */
+// $(document).ready(function () {
+//   // Initially hide all the additional fields
+//   $(".additional-fields").hide();
+
+//   // Show the fields based on the selected radio button
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".additional-fields").hide();
+//     $("#" + userType + "-fields").show();
+//   });
 // });
 
-
-
-
-
-
-
-$(document).ready(function() {
-  $('#signup-form').submit(function(e) {
-      e.preventDefault(); // Prevent default form submission
-      
-      // Serialize form data
-      var formData = $(this).serialize();
-      
-      // Send AJAX request
-      $.ajax({
-          type: 'POST',
-          url: '{% url "register_user" %}', // Replace 'register_modal' with your actual URL name
-          data: formData,
-          success: function(response) {
-              // Handle success response
-              console.log(response);
-              // Optionally, you can close the modal or show a success message here
-          },
-          error: function(xhr, status, error) {
-              // Handle error response
-              console.error(xhr.responseText);
-              // Optionally, you can display an error message here
-          }
-      });
+$(document).ready(function () {
+  $(".user-specific-fields").hide();
+  $('input[type="radio"][name="userType"]').change(function () {
+    var userType = $(this).val();
+    $(".user-specific-fields").hide();
+    $("#" + userType + "-fields").show();
   });
 });
+
+/* -------------------------------------------------------------------------- */
+/*                                FOR FAQ PAGE                                */
+/* -------------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach((question) => {
+    question.addEventListener("click", function () {
+      const answer = this.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    });
+  });
+});
+
+/* ---------------- SAVE GRASSROOT PROFILE BY LOOGED IN USER ---------------- */
+function loginAlert(e) {
+  // alert("Please Login"); 
+  LoginBtn.click(function (e) {
+    e.preventDefault();
+    formDiv.style.display = "flex";
+  });
+}
+
+// $(document).ready(function () {
+//   $(".user-specific-fields").hide();
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".user-specific-fields").hide().find(':input').prop('disabled', true);
+//     $("#" + userType + "-fields").show().find(':input').prop('disabled', false);
+//   });
+// });
+
+// $(document).ready(function () {
+//   $(".user-specific-fields").hide();
+
+//   $('input[type="radio"][name="userType"]').change(function () {
+//     var userType = $(this).val();
+//     $(".user-specific-fields").hide();
+
+//     $.ajax({
+//       url: '{% url "base:fetchFields" %}',
+//       type: "GET",
+//       data: {
+//         userType: userType,
+//       },
+//       success: function (data) {
+//         // $("#" + userType + "-fields")
+//         //   .html(data)
+//         //   .show();
+//         $("#get-field").htm(data);
+//       },
+//     });
+//   });
+// });
+
+// document.getElementById("grassroot-fields").querySelector("#id_org_name").disabled = true;
+// document.getElementById("grassroot-fields").querySelector("#id_description").disabled = true;
+
+// // document.getElementById("donor-fields").querySelector("#id_phone").disabled = true;
+// // document.getElementById("donor-fields").querySelector("#id_paymentMethod").disabled = true;
+// // document.getElementById("donor-fields").querySelector("#id_firmName").disabled = true;
+
+// document.getElementById("community-fields").querySelector("#id_fullName").disabled = true;
+// document.getElementById("community-fields").querySelector("#id_age").disabled = true;
+// document.getElementById("community-fields").querySelector("#id_location").disabled = true;
+
+// Function to disable all user-specific fields
+// function disableUserSpecificFields() {
+//   document
+//     .querySelectorAll(".user-specific-fields input")
+//     .forEach(function (input) {
+//       input.disabled = true;
+//     });
+// }
+
+// // Function to enable fields based on userType
+// function enableFieldsForUserType(userType) {
+//   // First, disable all fields
+//   disableUserSpecificFields();
+
+//   // Then, enable fields based on userType
+//   if (userType === "grassroot") {
+//     document
+//       .querySelectorAll("#grassroot-fields input")
+//       .forEach(function (input) {
+//         input.disabled = false;
+//       });
+//   } else if (userType === "donor") {
+//     document.querySelectorAll("#donor-fields input").forEach(function (input) {
+//       input.disabled = false;
+//     });
+//   } else if (userType === "community") {
+//     document
+//       .querySelectorAll("#community-fields input")
+//       .forEach(function (input) {
+//         input.disabled = false;
+//       });
+//   }
+// }
+
+// // Event listener for userType change
+// document.querySelectorAll('input[name="userType"]').forEach(function (radio) {
+//   radio.addEventListener("change", function () {
+//     enableFieldsForUserType(this.value);
+//   });
+// });
+
+// // Initially disable all fields
+// disableUserSpecificFields();

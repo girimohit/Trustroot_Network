@@ -9,3 +9,11 @@ venv
 virtual
 venv
 pretemplates
+__pycache__
+try.html
+a.txt
+try.css
+try.js
+pipfile
+pipfile.lock
+Pipfile.lock

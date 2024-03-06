@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- ----------------------------- Title Block ----------------------------- -->
+{% block title %} HOME {% endblock %}
+
+<!-- ------------------------------ CSS Block ------------------------------ -->
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+<!-- ----------------------------- Body Block ------------------------------ -->
+{% block body %}
+<div class="post">
+    <div class="profile">
+        <img src="{% static 'images/profile-icon.svg' %}" alt="Profile Picture" />
+        <span class="profile-name">Username</span>
+    </div>
+    <div class="post-image">
+        <img src="{% static 'images/backtree_crop.png' %}" alt="Post Image" />
+        <p class="post-caption">This is the caption for the post.</p>
+        <p class="post-text">Additional text below the image can be added here.</p>
+    </div>
+    <div class="post-actions">
+        <button class="action-btn like-btn">
+            <i><img src="{% static 'images/like.svg' %}" alt=""></i> Share
+        </button>
+        <button class="action-btn comment-btn">
+            <i><img src="{% static 'images/comment.svg' %}" alt=""></i> Share
+        </button>
+        <button class="action-btn share-btn">
+            <i><img src="{% static 'images/share.svg' %}" alt=""></i> Share
+        </button>
+    </div>
+</div>
+{% endblock %}

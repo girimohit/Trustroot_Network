@@ -7,8 +7,11 @@ ABOUT
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
 {% endblock %}
 
 {% block body %}
 <p class="first-element">This will be the about page of out website</p>
+IMAGE
+<img src="{{ MEDIA_URL }}/example.png" alt="Example Image">
 {% endblock %}

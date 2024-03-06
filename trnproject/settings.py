@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -125,11 +126,25 @@ STATICFILES_DIRS = [BASE_DIR / "public/static"]
 
 
 # Media files
+# MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
 MEDIA_URL = "media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
+MEDIA_ROOT = BASE_DIR / "public/media"
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# settings.py
+
+AUTH_USER_MODEL = "authentication.CustomUser"
+
+
+# # --------------------------- EMAIL BACKEND CONFIG --------------------------- #
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Replace with your preferred backend
+# EMAIL_HOST = 'your_email_host'  # Replace with your email host
+# EMAIL_PORT = 587  # Replace with your email port
+# EMAIL_USE_TLS = True  # Set to False if your email server doesn't use TLS
+# EMAIL_HOST_USER = 'your_email_username'  # Replace with your email username
+# EMAIL_HOST_PASSWORD = 'your_email_password'  # Replace with your email password
