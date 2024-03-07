@@ -120,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;    
+    width: 3rem;
     height: 3rem;
     border: 2px solid #024841;
     border-radius: 50%;
@@ -289,7 +289,7 @@
     background-color: #024841;
 }
 
-.after-saved-grassroot-btn{
+.after-saved-grassroot-btn {
     display: inline-block;
     font-size: 1rem;
     font-weight: 700;
@@ -339,7 +339,6 @@
     cursor: pointer;
 }
 
-/* Style the dropdown content (hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -365,4 +364,35 @@
 /* Show the dropdown content when the button or icon is clicked */
 .show {
     display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         GRASSROOT DROPDOWN PAGE CSS                         */
+/* -------------------------------------------------------------------------- */
+
+
+select {
+    background-color: #025b52;
+    color: rgb(238, 216, 200);
+    border-radius: 5px;
+    font-size: larger;
+    width: 200px;
+    height: 30px;
+}
+
+#gr-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+
+}
+
+
+#filter-search {
+    background-color: #025b52;
+    font-size: 20px;
+    color: rgb(238, 216, 200);
+    border-radius: 5px;
+    cursor: pointer;
 }
