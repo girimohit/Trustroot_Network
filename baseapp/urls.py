@@ -10,12 +10,7 @@ urlpatterns = [
     path("about/", views.about, name="aboutPage"),
     path("post/", views.post, name="post"),
     path("grassroots/", views.grassroot, name="grassrootPage"),
-    path("grassroot-profile/", views.grassroot_profile, name="grassroot_profile"),
+    path("grassroot-profile/<int:user_id>", views.grassroot_profile, name="grassroot_profile"),
     path("frequently-asked-questions/", views.faq, name="faq_page"),
-    path("save_grassroot/", views.save_grassroot, name="save_grassroot")
-]
-
-# Serve media files during development
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# url(r'^accounts/login/$', LoginView.as_view(authentication_form=OTPAuthenticationForm)),
+    path("authforms/", views.authforms, name="authforms")
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

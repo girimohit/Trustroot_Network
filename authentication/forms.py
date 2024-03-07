@@ -15,32 +15,54 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder" : "Email"}), required=False)
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Password"}) , max_length=16, required=True)
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Confirm Password"}) , max_length=16, required=True)
-    fullName = forms.CharField(widget=forms.TextInput(attrs={"placeholder" : "FUll Name"}))
     class Meta:
         model = CustomUser
-        fields = ("username", "email", "password1", "password2", "fullName")
+        fields = ("username", "email", "password1", "password2")
 
+SDG_CHOICES = [
+    ('', 'Select SDG'),
+    ('No Poverty', 'No Poverty'),
+    ('Zero Hunger', 'Zero Hunger'),
+    ('Good Health and Well-being', 'Good Health and Well-being'),
+    ('Quality Education', 'Quality Education'),
+    ('Gender Equality', 'Gender Equality'),
+    ('Clean Water and Sanitation', 'Clean Water and Sanitation'),
+    ('Affordable and Clean Energy', 'Affordable and Clean Energy'),
+    ('Decent Work and Economic Growth', 'Decent Work and Economic Growth'),
+    ('Industry, Innovation and Infrastructure', 'Industry, Innovation and Infrastructure'),
+    ('Reduced Inequality', 'Reduced Inequality'),
+    ('Sustainable Cities and Communities', 'Sustainable Cities and Communities'),
+    ('Responsible Consumption and Production', 'Responsible Consumption and Production'),
+    ('Climate Action', 'Climate Action'),
+    ('Life Below Water', 'Life Below Water'),
+    ('Life on Land', 'Life on Land'),
+    ('Peace and Justice Strong Institutions', 'Peace and Justice Strong Institutions'),
+    ('Partnerships to achieve the Goal', 'Partnerships to achieve the Goal'),
+]
 
 class GrassrootProfileForm(forms.ModelForm):
     org_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Oganisation Name"}), max_length=30, required=True)
     description = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Describe Grassroot..."}))
     focus_area = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "Focus Area"}))
+    contact_number = forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder": "Contact Number"}))
     location = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "Location"}))
-    sdg = forms.CharField(widget=forms.TextInput(attrs={"placeholder " : "SDG"}))
+    sdg = forms.ChoiceField(choices= SDG_CHOICES,widget=forms.Select(attrs={"placeholder" : "SDG"}))
+    # profile_icon = forms.ImageField(widget=forms.FileInput(attrs={"placeholder": "Upload profile image"}), required=False)
     
     class Meta:
         model = GrassrootProfile
-        fields = ("org_name", "description", "focus_area", "location", "sdg")
+        fields = ("org_name", "description", "focus_area", "contact_number", "location", "sdg", "profile_icon")    
 
 
 class DonorProfileForm(forms.ModelForm):
+    fullName = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"FUll Name"}))
     phone = forms.IntegerField(widget=forms.NumberInput(attrs={"placeholder" : "Phone Number"}))
     paymentMethod = forms.CharField(widget=forms.TextInput(attrs={"placeholder" : "Payment Method"}))
     firmName = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Firm Name"}))
     
     class Meta:
         model = DonorProfile
-        fields = ("phone", "paymentMethod", "firmName")
+        fields = ("fullName", "phone", "paymentMethod", "firmName")
 
 
 class CommunityUserProfileForm(forms.ModelForm):

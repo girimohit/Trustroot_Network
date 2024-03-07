@@ -28,17 +28,9 @@
             <li><a href="#">Contact</a></li>
             <li><a href="{% url 'base:faq_page' %}" id="faq">FAQs</a></li>
             <!-- <li><a href="{% url 'accounts:register_user' %}">AJAX</a></li> -->
-
             {% if user.is_authenticated %}
             <li><a href="{% url 'accounts:logout_user' %}"><img width="35vw"
-                  src="{% static 'images/profile-icon.svg' %}" alt=""></a>{{ username }}</li>
-
-
-
-
-
-
-
+                  src="{% static 'images/profile-icon.svg' %}" alt=""></a>{{ request.user.username }}</li>
             {% else %}
             <li><a id="login-signup-btn" href="javascript:void(0);">Login/SignUp</a></li>
             {% endif %}
@@ -53,73 +45,10 @@
     </div>
   </div>
 
-
-  <!-- ------------------------------ FORM DIV ------------------------------- -->
+  <!-- ------------------------------ MODAL DIV ------------------------------- -->
   <div id="outer-form-div">
-    <div class="center-container" id="inner-form-div">
-      <img class="icon" src="{% static 'images/trn_logo.svg' %}" alt="" />
-      <br /><br />
-
-      <!-- ---------------------------- SIGN UP FORM ----------------------------- -->
-      <form method="POST" id="signup-form" class="signup-form hidden" action="{% url 'accounts:register_user' %}">
-        {% csrf_token %}
-        <div id="radio-btn" class="radio-btn">
-          <input type="radio" name="userType" id="grassroot" value="grassroot">Grassroot
-          <input type="radio" name="userType" id="donor" value="donor">Donor
-          <input type="radio" name="userType" id="community" value="community">Community
-        </div>
-
-
-        <div id="extra-fields" class="extra-fiedls"></div>
-
-
-        {{ registrationForm.username }}
-        {{ registrationForm.password1 }}
-        {{ registrationForm.password2 }}
-        {{ registrationForm.email }}
-
-        <div id="grassroot-fields" class="grassroot-fields user-specific-fields">
-          {{ grassroot.org_name }}
-          {{ grassroot.description }}
-          {{ grassroot.focus_area }}
-          {{ grassroot.location }}
-          {{ grassroot.sdg }}
-        </div>
-
-        <div id="donor-fields" class="donor-fields user-specific-fields">
-          {{ donor.phone }}
-          {{ donor.paymentMethod }}
-          {{ donor.firmName }}
-        </div>
-
-        <div id="community-fields" class="community-fields user-specific-fields">
-          {{ community.fullName }}
-          {{ community.age }}
-          {{ community.location }}
-        </div> 
-
-
-
-        <input type="submit" class="submit-btn" id="SignUpBtn" value="Sign Up" />
-      </form>
-
-
-      <!-- ----------------------------- LOGIN FORM ------------------------------ -->
-      <form method="post" id="login-form" action="{% url 'accounts:login_user' %}">
-        {% csrf_token %}
-        {{ loginForm.username }}
-        <br /><br />
-        {{ loginForm.password }}
-        <input type="submit" class="submit-btn" id="SubmitBtn" value="Login" />
-      </form>
-
-      <br /><br />
-      <span><a href="#">Forgot Password?</a></span>
-      <span>
-        <span id="is-account">Don't have an account?</span>
-        <span><a href="#" id="SignUpLink">Sign Up</a> </span>
-      </span>
-    </div>
+    <div class="center-container" id="inner-form-div"></div>
+  </div>
   </div>
 
   {% block script %} {% endblock %}
@@ -127,7 +56,21 @@
   <script src="{% static 'js/auth_form.js' %}"></script>
   <script src="{% static 'js/jquery.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script></script>
+  <script>
+
+    $("#login-signup-btn").click(function () {
+      $.ajax({
+        url: "/authforms/",
+        type: "GET",
+        success: function (data) {
+          $("#inner-form-div").html(data);
+        },
+        error: function (error) {
+          console.error("Error:", error);
+        },
+      });
+    });
+  </script>
 </body>
 
 </html>

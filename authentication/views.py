@@ -18,138 +18,64 @@ from authentication.models import (
 )
 
 
+# ------------------------- Register/Signup User View ------------------------ #
 def register_user(request):
     if request.method == "POST":
-        user_type = request.POST.get("userType")
         base_form = SignUpForm(request.POST)
-        if user_type == "grassroot":
-            form = GrassrootProfileForm(request.POST)
-        elif user_type == "community":
+        type = request.POST.get("usertype")
+        profile_icon = request.POST.get("profile_icon")
+        print(type)
+        print(profile_icon)
+        if type == "grassroot":
+            if profile_icon:
+                print("Got the profile")
+                form = GrassrootProfileForm(request.POST, request.FILES)
+            form = GrassrootProfileForm(request.POST, request.FILES)
+        elif type == "community":
             form = CommunityUserProfileForm(request.POST)
-        elif user_type == "donor":
+        elif type == "donor":
             form = DonorProfileForm(request.POST)
         else:
-            return HttpResponse("Please Select Correct USER type!")
+            return JsonResponse({"error": "Invalid user type"}, safe=False)
+        # print(form)
 
         if base_form.is_valid() and form.is_valid():
-            user = base_form.save(commit=False)
-            user.full_name = base_form.cleaned_data.get("fullName")
-            user.save()
-            profile = form.save(commit=False)
-            profile.user = user
-            profile.save()
-            # Automatic Login
-            login(request=request, user=user)
+            print("Form is valid")
+            base_user = base_form.save(commit=False)
+            base_user.user_type = type
+            base_user.save()
+            form.instance.user = base_user
+            # form.instance.profile_icon = profile_icon
+            print("profile form is going to be saved")
+            form.save()
+            # Automatic login
+            login(request, base_user)
             return redirect("base:homePage")
+
+        elif form:
+            print(base_form.is_valid())
+            print(form.is_valid())
+            print("Form is there but not valid maybe")
+            field_html = ""
+            base_fields = base_form.visible_fields()
+            for j in base_fields:
+                field_html += str(j)
+            # Render only the form fields
+            fields = form.visible_fields()
+            for i in fields:
+                field_html += str(i)
+
+            return JsonResponse({"additional_fields": field_html})
         else:
-            return HttpResponse("Error Occurred!")
+            return JsonResponse({"error": "Invalid Request"}, safe=False)
+
     else:
-        context = {
-            "registrationForm": SignUpForm(),
-            # "loginForm": CustomAuthenticationForm(),
-            # "grassroot": GrassrootProfileForm(),
-            # "donor": DonorProfileForm(),
-            # "community": CommunityUserProfileForm(),
-        }
-        return render(request, "index.html", context=context)
+        # Render the initial form template
+        print("Not a POST request")
+        return render(request, "auth/signup.html")
 
 
-# def register_user(request):
-    # if request.method == "POST" and request.is_ajax():
-    #     selected_one = request.POST.get("selectedOne")
-
-    #     if selected_one == "grassroot":
-    #         form = GrassrootProfileForm()
-    #     elif selected_one == "donor":
-    #         form = DonorProfileForm()
-    #     elif selected_one == "community":
-    #         form = CommunityUserProfileForm()
-    #     else:
-    #         return HttpResponse("Invalid User")
-
-    #     # Render the form template with the form and return its HTML content
-    #     form_html = render(
-    #         request, "signup.html", {"form": form}
-    #     ).content.decode("utf-8")
-    #     return HttpResponse(form_html)
-    # else:
-    #     return HttpResponse("Bad request")
-    # return render(request, "auth/signup.html")
-
-# def register_user(request):
-#     if request.method == "POST":
-#         base_form = SignUpForm()
-#         user_type = request.POST.get("userType")
-#         if user_type == "grassroot":
-#             form = GrassrootProfileForm()
-#         elif user_type == "donor":
-#             form = DonorProfileForm()
-#         elif user_type == "community":
-#             form = CommunityUserProfileForm()
-#         else:
-#             return HttpResponse("Please Select Correct USER type!")
-#         print(form)
-#         if form.is_valid() and base_form.is_valid():
-#             # user = form.save(commit=False)
-#             # # user.set_password(form.cleaned_data["password1"])
-#             # user.save()
-#         # if base_form.is_valid() and form.is_valid():
-#             # user = base_form.save(commit=False)
-#             # user.full_name = base_form.cleaned_data.get("fullName")
-#             # user.save()
-#             # profile = form.save(commit=False)
-#             # profile.user = user
-#             # profile.save()
-#             # # Automatic Login
-#             # login(request=request, user=user)
-#             # return redirect("base:aboutPage")
-#             return HttpResponse("Forms are Valid")
-#         else:
-#             # return redirect("base:homePage")
-#             return HttpResponse("Error Occured!")
-#     else:
-#         context = {
-#             "registrationForm": SignUpForm(),
-#             "loginForm": CustomAuthenticationForm(),
-#             "grassroot": GrassrootProfileForm(),
-#             "donor": DonorProfileForm(),
-#             "community": CommunityUserProfileForm(),
-#         }
-#         return render(request, "index.html", context=context)
-
-
-# def register_user(request):
-#     if request.method == "POST":
-#         user_type = request.POST.get("userType")
-#         if user_type == "grassroot":
-#             form = GrassrootUserCreationForm()
-#         elif user_type == "donor":
-#             form = DonorCreationForm()
-#         elif user_type == "community":
-#             form = CommunityUserCreationForm()
-#         else:
-#             return HttpResponse(
-#                 "Invalid User. You're not authenticated to view this page"
-#             )
-#         if form.is_valid():
-#             # form.save()
-#             user = form.save(commit=False)
-#             user.set_password(form.cleaned_data["password1"])
-#             user.save()
-#             # automatic login
-#             login(request, user)
-#             return redirect("base:homePage")
-#     else:
-#         context = {
-#             "registrationForm": CustomUserCreationForm(),
-#             "loginForm": CustomAuthenticationForm(),
-#             "grassroot": GrassrootUserCreationForm(),
-#             "donor": DonorCreationForm(),
-#             "community": CommunityUserCreationForm(),
-#         }
-#     return render(request, "index.html", context)
-
-
+# ------------------------------ Login User View ----------------------------- #
 def login_user(request):
     if request.method == "POST":
         form = CustomAuthenticationForm(request, request.POST)
@@ -165,32 +91,7 @@ def login_user(request):
     return render(request, "index.html", {"loginForm": form})
 
 
+# ----------------------------- Logout User View ----------------------------- #
 def logout_user(request):
     logout(request)
     return redirect("base:homePage")
-
-
-# # def register_user(request):
-# #     if request.method == "POST":
-# #         user_type = request.POST.get("userType")
-# #         print("USER TYPE : ", user_type)
-# #         if user_type == "grassroot":
-# #             form = GrassrootUserCreationForm(request.POST)
-# #         elif user_type == "donor":
-# #             form = DonorCreationForm(request.POST)
-# #         elif user_type == "community":
-# #             form = CommunityUserCreationForm(request.POST)
-# #         if form.is_valid():
-# #             user = form.save()
-# #             login(request, user)
-# #             return redirect("base:homePage")
-# #     else:
-# #         form = CustomUserCreationForm()
-# #     context = {
-# #         "registrationForm": CustomUserCreationForm(),
-# #         "loginForm": CustomAuthenticationForm(),
-# #         "community": CommunityUserCreationForm(),
-# #         "donor": DonorCreationForm(),
-# #         "grassroot": GrassrootUserCreationForm(),
-# #     }
-# #     return render(request, "index.html", context=context)
