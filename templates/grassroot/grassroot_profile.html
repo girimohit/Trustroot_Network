@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Profile Page
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/grassroot.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="relative">
+        <img class="banner-img" src="{% static 'images/backtree_crop.png' %}" alt="grassroot profile image">
+        <img class="logo" src="{% static 'images/trn_logo.png' %}" alt="logo">
+        <img class="notification-bell" src="{% static 'images/notification_bell.svg' %}" alt="">
+        <span class="three-dot">&vellip;</span>
+    </div>
+    <div class="text-center">
+        <h1 class="org-name">{{ grassroot_profile.org_name }}</h1>
+        <h5 class="org-description">{{ grassroot_profile.description }}</h5>
+        
+        {% if user.is_authenticated %}
+        {% if is_following %}
+        
+        <button class="after-saved-grassroot-btn"><a href="{% url 'grassroot_app:unfollow-grassroot' profile_id %}">Saved</a></button>
+        
+        {% else %}
+        
+        
+        <form method="post" action="{% url 'grassroot_app:follow-grassroot' profile_id %}">
+            {% csrf_token %}
+            <button type="submit" class="save-grassroot-btn">Save</button>
+        </form>
+        {% endif %}
+        
+        {% else %}
+        <button class="save-grassroot-btn" onclick="loginAlert()" class="save-grassroot-btn">Save</button>
+        {% endif %}
+        {{ profile_id }}
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- At TrustRoots Network, our vision is to cultivate a paradigm shift in the aid and
+            philanthropy sector. We aspire to build a community wher trust-based partnerships thrive, facilitated by our
+            platfrom offering searchable, peer-reviewed grasswroots initiatives.  -->

@@ -127,9 +127,12 @@ STATICFILES_DIRS = [BASE_DIR / "public/static"]
 
 # Media files
 # MEDIA_ROOT = os.path.join(BASE_DIR, "public/media")
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "public/media"
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "public\media")
 
+
+MEDIA_ROOT = BASE_DIR/"public/media"
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -148,3 +151,9 @@ AUTH_USER_MODEL = "authentication.CustomUser"
 # EMAIL_USE_TLS = True  # Set to False if your email server doesn't use TLS
 # EMAIL_HOST_USER = 'your_email_username'  # Replace with your email username
 # EMAIL_HOST_PASSWORD = 'your_email_password'  # Replace with your email password
+
+
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+]

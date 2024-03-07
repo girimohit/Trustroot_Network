@@ -1,3 +1,68 @@
+#gr-filter {
+    padding-top: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+
+#gr-filter-form select {
+    width: 6rem;
+    border-radius: 1rem;
+    padding: 0.1rem 0.3rem;
+    background-color: rgb(242, 242, 242);
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    justify-content: flex-start;
+}
+
+.search-bar {
+    background-color: rgb(242, 242, 242);
+    /* background-color: transparent;    */
+    color: black;
+    border: 0.1px solid gray;
+    border-radius: 15px 0 0 15px;
+    /* text-align: center; */
+    padding: 2% 0 2% 4%;
+    width: 70%;
+    margin-right: 0;
+}
+
+.search-bar:focus {
+    outline: none;
+    text-align: left;
+}
+
+.search-icon {
+    background-color: rgb(250, 249, 246);
+    border: 0.1px solid gray;
+    border-radius: 0 15px 15px 0;
+    text-align: center;
+    padding: 2% 6% 2% 4%;
+    margin-left: 0;
+}
+
+.round-capsule {
+    border: 0.1px solid gray;
+    border-radius: 15px 0 0 15px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 .map-container {
     display: flex;
     justify-content: center;
@@ -55,8 +120,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8%;
-    height: 100%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #024841;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .info {
@@ -64,6 +132,7 @@
     height: 100%;
     flex-direction: row;
     width: 75%;
+    align-items: center;
 }
 
 .person-info {
@@ -73,11 +142,11 @@
     flex-direction: column;
     padding: 0.5vw 2vw 0.3vw 1.8vw;
     /* line-height: 2vmax; */
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 .person-info h5 {
-    font-size: 1.5 3vw;
+    font-size: 1.4rem;
 }
 
 .viewer-action {
@@ -89,6 +158,12 @@
 
 .viewer-action h6 {
     font-size: 1vw;
+    background-color: #02796d;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    margin: 0.3rem 0;
+    padding: 0.2rem 0.7rem;
 }
 
 
@@ -206,8 +281,26 @@
     margin: 1rem 0;
 }
 
+.save-grassroot-btn a {
+    color: white;
+}
+
 .save-grassroot-btn:hover {
     background-color: #024841;
+}
+
+.after-saved-grassroot-btn {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem 0;
+    background-color: white;
+    color: #024841;
 }
 
 @media screen and (max-width: 768px) {
@@ -226,36 +319,80 @@
 }
 
 
+
+
+
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the button or icon */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the content inside the dropdown */
+.dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Change color of content on hover */
+.dropdown-content p:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when the button or icon is clicked */
+.show {
+    display: block;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                         GRASSROOT DROPDOWN PAGE CSS                         */
 /* -------------------------------------------------------------------------- */
 
 
-select{
-    background-color: #025b52; 
-    color:rgb(238, 216, 200); 
-    border-radius:5px;
+select {
+    background-color: #025b52;
+    color: rgb(238, 216, 200);
+    border-radius: 5px;
     font-size: larger;
     width: 200px;
     height: 30px;
 }
 
-#gr-filter{
+#gr-filter {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
-    
+
 }
 
 
-#filter-search{
+#filter-search {
     background-color: #025b52;
     font-size: 20px;
-    color:rgb(238, 216, 200); 
+    color: rgb(238, 216, 200);
     border-radius: 5px;
     cursor: pointer;
 }
-   
-    
-    

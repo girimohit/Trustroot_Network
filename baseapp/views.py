@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpRequest, HttpResponse
+from django.conf import settings
 
 # from baseapp.forms import CustomUserCreationForm, CustomAuthenticationForm
 from authentication.forms import (
@@ -10,16 +11,20 @@ from authentication.forms import (
     DonorProfileForm,
     CommunityUserProfileForm,
 )
-from authentication.models import GrassrootProfile
+from authentication.models import GrassrootProfile, Follow
 
 
 # Create your views here.
 def home(request):
     username = request.user.username
+    mediafolder = settings.MEDIA_ROOT
+    mediaurl = settings.MEDIA_URL
+    print(mediafolder)
+    print("URL : ", mediaurl)
     context = {
         "registrationForm": SignUpForm(),
         "loginForm": CustomAuthenticationForm(),
-        "username": username,
+        # "username": username,
         "grassroot": GrassrootProfileForm(),
         "donor": DonorProfileForm(),
         "community": CommunityUserProfileForm(),
@@ -50,16 +55,33 @@ def grassroot(request):
         grassroots = grassroots.filter(sdg=sdg)
 
     context = {"grassroots": grassroots}
-    return render(request, "grassroot.html", context=context)
+    return render(request, "grassroot/grassroots_page.html", context=context)
 
 
-def grassroot_profile(request):
-    return render(request, "grassroot_profile.html")
+def grassroot_profile(request, user_id):
+    id_from_url = user_id
+    print(id_from_url)
+    
+    grassroot_profile = get_object_or_404(GrassrootProfile, user_id=user_id)
+    if request.user.is_authenticated:
+        is_following = Follow.objects.filter(follower=request.user, following=grassroot_profile).exists()
+    else:
+        is_following = ""
+    context = {
+        "grassroot_profile": grassroot_profile,
+        "profile_id": id_from_url,
+        "is_following": is_following,
+    }
+    return render(request, "grassroot/grassroot_profile.html", context)
 
 
 def faq(request):
     return render(request, "faq.html")
 
 
-def save_grassroot(request):
-    pass
+def authforms(request):
+    context = {
+        "registrationForm": SignUpForm(),
+        "loginForm": CustomAuthenticationForm(),
+    }
+    return render(request, "auth/signup.html", context)

@@ -17,3 +17,7 @@ try.js
 pipfile
 pipfile.lock
 Pipfile.lock
+.dockerignore
+README.Docker.md
+compose.yaml
+Dockerfile
