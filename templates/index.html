@@ -13,14 +13,41 @@
 
 <!-- ---------------------------- BIG IMAGE DIV ---------------------------- -->
 <div id="image-container" class="image-container">
-  <img class="main-image" src="{% static 'images/backtree_crop.png' %}" alt="Main Image">
+  <img
+    class="main-image"
+    src="{% static 'images/backtree_crop.png' %}"
+    alt="Main Image" />
   <div id="img-text" class="img-text">
     <p>We provide</p>
-    <h1>Trust-based partnerships by providing a searchable platoform of peer-reviewed Grassroots.</h1>
+    <h1>
+      Trust-based partnerships by providing a searchable platoform of
+      peer-reviewed Grassroots.
+    </h1>
     <button>Learn More</button>
   </div>
 </div>
 
+<!-- ------------------------- Grassroot DIV -------------------------- -->
+<div class="grassroot">
+  <h2 class="grassroot-heading">Empower your grassroots <br> organisation with TrustRoots</h2>
+  <p>A platform that fosters trust-based partnerships, showcasing your <br> impact, sharing success stories, and connecting you with potential <br> supporters 
+    for sustainable growth. Sign up today to secure general <br> operating support and capacity building funding!</p>
+  <!-- <img src="{% static 'images/right-arrow.png' %}" alt=""><br> -->
+  <div id="grassroot-btn">
+    <a id="grassroot-login-button" href="javascript:void(0);">Grassroot Sign-Up</a>
+  </div><br>
+</div>
+
+<!-- ------------------------- Doner DIV -------------------------- -->
+<div class="doner">
+  <h2 class="doner-heading">Amplify your impact in international <br> development with TrustRoots</h2>
+  <p>A gateway to fostering trust-based partnerships on the ground! <br> Explore verified grassroots organizations, make informed
+    decisions, <br> and build meaningful collaborations. Sign up now to transform your <br> philanthropic journey!</p>
+  <!-- <img src="{% static 'images/right-arrow.png' %}" alt=""><br> -->
+  <div class="doner-btn">
+    <a id="doner-login-button" href="javascript:void(0);">Doner Sign-Up</a>
+  </div>
+</div>
 <!-- ------------------------- SHOWCASE CARDS DIV -------------------------- -->
 <div id="showcase-cards" class="showcase-cards">
   <div class="card1" id="card1">
@@ -36,102 +63,359 @@
 </div>
 
 <!-- ---------------------------- ABOUT US DIV ----------------------------- -->
-<div class="aboutus-div" id="aboutus-div">
-  <h4>About us</h4>
-  <h2>Our commitment lies in the unwavering pursuit of truth</h2>
-  <button value="vision">Our vision</button>
-  <button value="mission">Our mission</button>
-  <button value="values">Our values</button>
-  <button value="journey">The Journey of Trustroots</button>
-  <p id="our-vision" class="about-us-para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic ratione consequuntur quod
-    quibusdam nisi? Ab nulla alias reiciendis, debitis eligendi rerum corrupti quas, aperiam dolor in suscipit! Et,
-    error!
+<div class="aboutus-div" id="about-us" align="Center">
+  <h1 class="heading">ABOUT US</h1>
+  <br />
+  <div class="aboutus-div-button">
+    <button class="about-btn" onclick="showParagraph('overview')">Overview</button>
+    <button class="about-btn" onclick="showParagraph('problem')">Problem</button>
+    <button class="about-btn" onclick="showParagraph('vision')">Vision</button>
+    <button class="about-btn" onclick="showParagraph('mission')">Mission</button>
+    <button class="about-btn" onclick="showParagraph('values')">Values</button><br /><br /><br />
+  </div>
+  <br />
+
+  <p id="overview" style="display: block">
+    TrustRoot Network (abbreviation: TrustRoots) is a global platform facilitating trust-based partnerships 
+    between funders & grassroot organisations globally, by providing visibility and peer review opportunities - 
+    with the aim of creating a more localised, equitable, efficient and impactful aid sector.
+    <span class="extra-content" style="display: none">
+      TrustRoots was incubated in 2021 as part of the Amani Institute’s Post-Graduate Diploma in Social Innovation Management, 
+      which both founders Julia Wegner and Pratiksha Jawanjale were part of. Since June 2022 the project is part 
+      of the Athari Group Accelerator Program.</span
+    ><br /><br />
+    <button
+      class="read-more"
+      id="read-more"
+      onclick="toggleVisibility('overview')">
+      Read More
+    </button>
   </p>
-  <p id="our-mission" class="about-us-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quasi fugit est
-    numquam
-    impedit? Iure mollitia exercitationem, autem asperiores error quos eum earum consequatur in ut, dolore dolor ullam
-    voluptatibus, illum quas nam. Voluptates atque, illo iure pariatur fugit eum amet cum distinctio harum asperiores
-    aperiam, aspernatur, dolorum consequatur. Quam doloribus impedit vitae ullam error.
+  <p id="problem">
+    Financial Inequity: Financial imbalances between donors and grassroots. Meaning only 1.2% of global humanitarian aid goes directly to local organisations <br>
+    Low Effectiveness: Limited access to core and flexible funding prevents grassroots from sustainable implementation in their community’s best interest <br>
+    Power Imbalance: Prioritisation and decision making power are still too often held by donors, rather than local actors and their communities <br>
+    <span class="extra-content" style="display: none">
+      Pratiksha Jawanjale and Jey Wegner are experienced development professionals who met during their post-graduate diploma in Social Innovation Management 
+      at Amani Institute. Both entered the program asking why the so-called development sector was ineffective in creating changes - and a bond was struck. 
+      In 2021 they founded TrustRoots, a project aiming at promoting and facilitating trust-based partnerships between funders and grassroots organisations.
+      </span><br /><br />
+    <button
+      class="read-more"
+      id="read-more"
+      onclick="toggleVisibility('problem')">
+      Read More
+    </button>
   </p>
-  <p id="our-values" class="about-us-para">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolore eos voluptas eveniet ad excepturi
-    nobis id doloremque blanditiis explicabo cupiditate labore rem nesciunt magnam tempore placeat, hic tenetur ab
-    perferendis quaerat vitae. Nulla pariatur consectetur et facilis!
+  <p id="vision">
+    Transparency - Funding and strategic decisions are transparent & based on
+    community data Trust - Grassroots organisations are valued & trusted and
+    provided the means to effectively work with their communities Lorem, ipsum
+    dolor sit amet consectetur adipisicing elit. Blanditiis hic ratione
+    consequuntur quod quibusdam nisi? Ab nulla alias reiciendis, debitis
+    eligendi rerum corrupti quas, aperiam dolor in suscipit! Et, error!
+    <span class="extra-content" style="display: none">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic
+      ratione consequuntur quod quibusdam nisi? Ab nulla alias reiciendis,
+      debitis eligendi rerum corrupti quas, aperiam dolor in suscipit! Et,
+      error!</span
+    ><br /><br />
+    <button
+      class="read-more"
+      id="read-more"
+      onclick="toggleVisibility('vision')">
+      Read More
+    </button>
   </p>
-  <p id="our-journey" class="about-us-para">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum eius, labore quasi dolor fuga laborum consequatur
-    soluta, culpa dicta placeat illum ut consequuntur ullam voluptas accusantium explicabo incidunt maiores omnis odit.
-    Amet commodi at, quam alias vero eos dolorem odit excepturi vel animi provident ratione necessitatibus? Doloremque
-    nulla ducimus temporibus accusamus eum nam quas ipsa?
+  <p id="mission">
+    Transparency - Funding and strategic decisions are transparent & based on
+    community data Trust - Grassroots organisations are valued & trusted and
+    provided the means to effectively work with their communities Lorem, ipsum
+    dolor sit amet consectetur adipisicing elit. Blanditiis hic ratione
+    consequuntur quod quibusdam nisi? Ab nulla alias reiciendis, debitis
+    eligendi rerum corrupti quas, aperiam dolor in suscipit! Et, error!
+    <span class="extra-content" style="display: none">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis hic
+      ratione consequuntur quod quibusdam nisi? Ab nulla alias reiciendis,
+      debitis eligendi rerum corrupti quas, aperiam dolor in suscipit! Et,
+      error!</span
+    ><br /><br />
+    <button
+      class="read-more"
+      id="read-more"
+      onclick="toggleVisibility('mission')">
+      Read More
+    </button>
   </p>
-  <button class="read-more" id="read-more">Read More</button>
+  <p id="values">
+    Transparency - Funding and strategic decisions are transparent & based on community data. <br>
+    Trust - Grassroots organisations are valued & trusted and provided the means to effectively work with their communities. <br> 
+    <span class="extra-content" style="display: none">
+      Humility - Humility, equity and an awareness of power dynamics are at the centre of aid work.
+    </span
+    ><br /><br />
+    <button
+      class="read-more"
+      id="read-more"
+      onclick="toggleVisibility('values')">
+      Read More
+    </button>
+  </p>
 </div>
+
+<!-- -------------------------- Our Journey US DIV --------------------------- -->
+<h1 class="heading" align="Center">OUR JOURNEY</h1>
+<br />
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2 class="date">June 2021</h2>
+      <p>
+        Incubation: TrustRoots takes root as part of the Amani Institute’s
+        Post-Graduate Diploma in Social Innovation Management.
+      </p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2 class="date">September 2021</h2>
+      <p>
+        First Prototype: Our journey begins with the development of the first
+        prototype.
+      </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2 class="date">June 2022</h2>
+      <p>
+        Athari Group Accelerator: TrustRoots becomes part of the Athari Group
+        Accelerator Program, expanding its horizons.
+      </p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2 class="date">September 2022</h2>
+      <p>
+        Funding Award: TrustRoots secures a funding award from Athari (Kyndral),
+        marking a significant milestone.
+      </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2 class="date">August 2023</h2>
+      <p>
+        Wireframe Creation: The blueprint for TrustRoots takes shape with the
+        creation of a wireframe for platform development.
+      </p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2 class="date">November 2023</h2>
+      <p>
+        User Research: We delve into user research, gaining valuable insights to
+        shape the TrustRoots experience.
+      </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2 class="date">December 2023</h2>
+      <p>
+        Tech Team Onboarding: Our tech team joins the journey, bringing
+        expertise to turn vision into reality.
+      </p>
+    </div>
+  </div>
+</div>
+<br /><br />
 
 <!-- -------------------------- WORK WITH US DIV --------------------------- -->
 <div class="work-with-us" id="work-with-us">
-  <h2>WORK WITH US</h2>
-  <div class="children-div">
-    <div class="child"></div>
-    <div class="child"></div>
-    <div class="child"></div>
+  <h1 class="heading" align="Center">WORK WITH US</h1><br><br>
+  <div class="child-main-div">
+    <div class="children-div">
+      <div class="child">
+        <img src="{% static 'images/businessman.png' %}" alt="" width="50%"
+        height="50%"
+        viewBox="0 0 1024 1024"
+        stroke-width="0"
+        fill="currentColor"
+        stroke="currentColor"
+        class="image-icon">
+      </div>
+      <p class="card-title">Ambassador</p>
+    </div>
+    <div class="children-div">
+      <div class="child">
+        <img src="{% static 'images/review.png' %}" alt="" width="50%"
+        height="50%"
+        viewBox="0 0 1024 1024"
+        stroke-width="0"
+        fill="currentColor"
+        stroke="currentColor"
+        class="image-icon">
+      </div>
+      <p class="card-title">Reviewer</p>
+    </div>
+    <div class="children-div">
+      <div class="child">
+        <img src="{% static 'images/donation.png' %}" alt="" width="50%"
+        height="50%"
+        viewBox="0 0 1024 1024"
+        stroke-width="0"
+        fill="currentColor"
+        stroke="currentColor"
+        class="image-icon">
+      </div>
+      <p class="card-title">Support</p>
+    </div>
+  </div>
+  
+</div>
+<!-- -------------------------- Transparency DIV --------------------------- -->
+<div class="transparency">
+  <h1 class="heading" align="Center" style="color: #dbb670">TRANSPARENCY</h1>
+  <br />
+  <div class="transparency-div">
+    <ul class="content">
+      <li><h2><img src="{% static 'images/turn-right.png' %}" alt="">&emsp;Selection Criteria</h2></li><hr>
+      <li><h2><img src="{% static 'images/turn-right.png' %}" alt="" style="height: 4%; width: 4%;">&emsp;Team</h2></li><hr>
+      <li><h2><img src="{% static 'images/turn-right.png' %}" alt="">&emsp;The Problem</h2></li><hr>
+    </ul>
   </div>
 </div>
-
-
+ 
 <!-- -------------------------- SUPPORTED BY DIV --------------------------- -->
 <div class="supportedby-div" id="supportedby-div">
-  <h2>SUPPORTED BY</h2>
+  <h1 align="Center" class="heading">SUPPORTED BY</h1>
   <div class="org-logos" id="org-logo">
-    <img class="support-logo" src="{% static 'images/amani-institute.png' %}" alt="a">
-    <img class="support-logo" src="{% static 'images/athari-group.png' %}" alt="a">
+    <img
+      class="support-logo"
+      src="{% static 'images/amani_institute.png' %}"
+      alt="a" />
+    <img
+      class="support-logo"
+      src="{% static 'images/athari-group.png' %}"
+      alt="a" />
   </div>
 </div>
 
 <!-- ------------------------------- FOOTER -------------------------------- -->
 <footer>
-  <div class="footer-main" id="footer-main">
-    <img class="footer-logo" src="{% static 'images/trn_logo.png' %}" alt="Logo">
-    <p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate nesciunt voluptatibus ipsam
-      minima corrupti
-      quidem corporis quia maiores labore nobis! Eos quo inventore quos est optio dolorum ab ea aspernatur?</p>
-    <ul class="customer-care-links" id="customer-care-links">
-      <li>Help Center</li>
-      <li>Terms & Conditions</li>
-      <li>Privacy Policy</li>
-      <li>Returns & Refunds</li>
-      <li>Surveys & Feedbacks</li>
-    </ul>
-    <ul class="pages-links" id="pages-links">
-      <li>About Us</li>
-      <li>contact Us</li>
-      <li>Services</li>
-      <li>Blog</li>
-    </ul>
+    <div class="footer-logo">
+      <img
+        class="footer-logo-img"
+        src="{% static 'images/trn_logo.png' %}"
+        alt="Logo" />
+        
+        <h2>TrustRoots Network</h2>
+    </div>
+    <div class="footer-main" id="footer-main">
+      <p class="info">
+        TrustRoots Network facilitates trust-based partnerships by providing a searchable platform of
+        peer-reviewed grassroots. Our vision is a healthy, impactful, locally-led and equitable aid and philanthropy sector.
+      </p><br>
+  
+      <ul class="customer-care-links" id="customer-care-links">
+        <li>Help Center</li>
+        <li>Terms & Conditions</li>
+        <li>Privacy Policy</li>
+        <li>Surveys & Feedbacks</li>
+      </ul>
+      <ul class="pages-links" id="pages-links">
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Services</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+    
     <!-- <form class="search-area" action="">
       <input type="text" name="search-bar" id="search-bar" placeholder="Search" />
       <button id="search-icon" class="search-icon" type="submit">
         <img width="16em" src="{% static 'images/search.svg' %}" alt="" />
       </button>
     </form> -->
-  </div>
-
 </footer>
-
-
 
 {% endblock %}
 
 <!-- ---------------------------- Script block ----------------------------- -->
 {% block script %}
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/auth_form.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-  var workWithUsLink = document.getElementById('work-with-us-link');
-  workWithUsLink.addEventListener('click', function (e) {
+  var workWithUsLink = document.getElementById("work-with-us-link");
+  workWithUsLink.addEventListener("click", function (e) {
     e.preventDefault();
     var targetDiv = document.getElementById("work-with-us");
     targetDiv.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
+  showParagraph("overview");
+  function showParagraph(paragraphId) {
+    // Hide all paragraphs except the selected one
+    document.querySelectorAll(".aboutus-div p").forEach(function (p) {
+      if (p.id === paragraphId) {
+        p.style.display = "block";
+      } else {
+        p.style.display = "none";
+      }
+    });
+    // Reset the "Read More" button text
+    document
+      .querySelectorAll(".aboutus-div .read-more")
+      .forEach(function (button) {
+        button.textContent = "Read More";
+      });
+  }
 
+  function toggleVisibility(paragraphId) {
+    var extraContent = document
+      .getElementById(paragraphId)
+      .querySelector(".extra-content");
+    var buttonText = document
+      .getElementById(paragraphId)
+      .querySelector(".read-more");
+    if (extraContent.style.display === "none") {
+      extraContent.style.display = "inline"; // Show the extra content
+      buttonText.textContent = "Read Less"; // Change button text
+    } else {
+      extraContent.style.display = "none"; // Hide the extra content
+      buttonText.textContent = "Read More"; // Change button text
+    }
+  }
+  
+  $("#grassroot-login-button").click(function () {
+      $.ajax({
+        url: "/authforms/",
+        type: "GET",
+        success: function (data) {
+          $("#inner-form-div").html(data);
+        },
+        error: function (error) {
+          console.error("Error:", error);
+        },
+      });
+    });
+    $("#doner-login-button").click(function () {
+      $.ajax({
+        url: "/authforms/",
+        type: "GET",
+        success: function (data) {
+          $("#inner-form-div").html(data);
+        },
+        error: function (error) {
+          console.error("Error:", error);
+        },
+      });
+    });
 </script>
 <script src="{% static 'js/jquery.js' %}"></script>
 

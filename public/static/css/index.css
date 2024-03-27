@@ -34,6 +34,92 @@
   font-weight: 800;
 }
 
+/* -------------------------------- Grassroot -------------------------------- */
+.grassroot{
+  background-color: #025b52;
+}
+
+.grassroot-heading{
+  padding: 4vw 4vw 0 4vw;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 0.3vw;
+  color: white;
+}
+
+.grassroot p{
+  text-align: justify;
+  color: white;
+  padding: 4vw 4vw 2vw 4vw;
+  font-size: 30px;
+  word-spacing: 8px;
+}
+
+#grassroot-btn{
+  padding: 4vw 4vw 4vw 70vw;
+}
+
+#grassroot-login-button {
+  background-color: white;
+  padding: 1vw 3vw;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  color: #025b52;
+  font-size: 1.5em;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+#grassroot-login-button:hover {
+  font-size: 1.8em;
+}
+
+/* -------------------------------- Doner -------------------------------- */
+.doner{
+  background-color: #dbb670;
+}
+
+.doner-heading{
+  text-align: right;
+  padding: 4vw 4vw 0 0vw;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 0.3vw;
+  color: white;
+}
+
+.doner p{
+  text-align: right;
+  color: white;
+  padding: 4vw 4vw 2vw 4vw;
+  font-size: 30px ;
+  word-spacing: 8px;
+}
+
+.doner-btn{
+  padding: 4vw 70vw 4vw 8vw;
+}
+
+#doner-login-button {
+  background-color: white;
+  padding: 1vw 3vw;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  color: #dbb670;
+  font-size: 1.5em;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+#doner-login-button:hover {
+  font-size: 1.8em;
+}
 /* -------------------------------- SHOWCASE -------------------------------- */
 .showcase-cards {
   width: 100%;
@@ -86,63 +172,277 @@
   /* padding-bottom: vw; */
   margin: 4vw;
   margin-left: 6vw;
-  padding: 4vw 0;
+  /* padding: 4vw 0; */
   justify-content: center;
 }
 
-.aboutus-div h4 {
-  font-size: 1.5vw;
+.aboutus-div-button{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.aboutus-div h2 {
-  font-size: 2vw;
+.heading{
+  font-size: 4.5vw;
+  font-weight: 900;
+  letter-spacing: 0.3vw;
+  color: #025b52;
 }
 
-.aboutus-div button {
-  padding: 0.3vw 2vw;
+/* .aboutus-div button {
+  padding: 0px 20px 0px 20px;
   background-color: #4e8d86;
   color: white;
   border: none;
-  border-radius: 1vw;
-  font-size: 1vw;
+  border-radius: 0.5vw;
+  font-size: 1.6vw;
+  font-weight: bolder;
+  letter-spacing: 0.1vw;
 }
 
 .aboutus-div button:hover {
   background-color: #025b52;
   color: #dbb670;
   transition: 0.6s;
-}
+  cursor: pointer;
+} */
+
+.about-btn {
+  --color: #025b52;
+  padding: 0.8em 1.7em;
+  background-color: transparent;
+  border-radius: .3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 600;
+  font-size: 1.3vw;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+ }
+ 
+ .about-btn::before, .button::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 0.5s ease;
+ }
+ 
+ .about-btn::before {
+  top: -1em;
+  left: -1em;
+ }
+ 
+ .about-btn::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+ }
+ 
+ .about-btn:hover::before, .button:hover::after {
+  height: 410px;
+  width: 410px;
+ }
+ 
+ .about-btn:hover {
+  color: white;
+ }
+ 
+ .about-btn:active {
+  filter: brightness(.8);
+ }
+ 
 
 .aboutus-div p {
-  width: 65%;
+  /* width: 65%; */
   padding: 1vw 0;
-  font-size: 1.4vw;
-  font-weight: 700;
-  letter-spacing: 0.2vw;
+  font-size: 1.3vw;
+  line-height: 1.6;
+  word-spacing: 6px;
 }
 
-#read-more {
+/* #read-more {
+  font-size: 1.2vw;
+  font-weight: bolder;
   background-color: white;
   color: #025b52;
   padding: 0.3vw 2vw;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
+} */
+ 
+#read-more {
+  background-color: white;
+  color: #025b52;
+  border-radius: 10em;
+  font-size: 1.2vw;
+  font-weight: 600;
+  padding: 0.3vw 2vw;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #025b52;
+  box-shadow: 0 0 0 0 #025b52;
+}
+
+#read-more:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 #025b52;
+};
+
+#read-more:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 #025b52;
+};
+
+/*-- -------------------------- Our Journey US DIV --------------------------- --*/
+.date{
+  font-weight: bolder;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #dbb670;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #dbb670;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #025b52;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #025b52;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #025b52;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #025b52 transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: #025b52;
+  color:white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid #025b52;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
 }
 
 /* -------------------------- WORK WITH US DIV ---------------------------  */
 .work-with-us {
   align-items: center;
-  padding: 6vw;
-  background-color: #f7eede;
+  padding: 3vw 0vw 5vw 0vw;
+  /* background-color: #f7eede; */
 }
 
-.work-with-us h2 {
-  text-align: center;
-  font-size: 2vw;
-  color: #025b52;
-  padding-bottom: 2vw;
-}
-.children-div {
+.child-main-div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,36 +450,124 @@
   gap: 10%;
 }
 
-.child {
-  width: 20vw;
-  height: 20vw;
-  background-color: #7ca498;
-  border-radius: 2.5vw;
+.children-div {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  height: 280px;
+  max-height: 330px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0px 10px 12px #025b52,
+    -4px -4px 12px #025b52;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
+.children-div:hover {
+  cursor: default;
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 20px #025b52,
+    -4px -4px 12px #025b52;
+}
+
+.child {
+  width: 100%;
+  height: 64%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background-color: #4e8d86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-icon {
+  font-size: 40px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.6vw;
+  font-weight: 600;
+  color: #025b52;
+  cursor: default;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  padding-top: 25px;
+  text-align: center;
+}
+
+
+/* ---------------------------- Transparency DIV ---------------------------- */
+.transparency{
+  padding: 4vw 0;
+  background-color: #025b52;
+}
+
+.transparency h2{
+  color: white;
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 700;
+}
+
+.transparency hr{
+  width: 40%;
+  margin: 0 auto;
+  height: 4px;
+  background-color: white;
+}
+
+.content{
+  height: 100%;
+  list-style: none;
+  gap: 1vw;
+  font-size: 1.2vw;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content li{
+  padding-left: 250px;
+}
+
+.content img {
+  height: 3%;
+  width: 3%;
+} 
 /* ---------------------------- SUPPORTED BY DIV ---------------------------- */
 .supportedby-div {
-  padding: 8vw 6vw;
-  /* background-color: black; */
+  padding: 1vw 0vw 0vw 0vw;
+  background-color: #f7eede;
 }
-.supportedby-div h2 {
+
+/* .supportedby-div h2 {
   text-align: center;
   font-size: 2vw;
   color: #025b52;
   padding-bottom: 2vw;
-}
+} */
 
 .org-logos {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5%;
+  gap: 15%;
 }
 
 .support-logo {
   width: 20%;
-  /* background-color: black; */
   border-radius: 2vw;
 }
 
@@ -195,14 +583,33 @@
   /* align-items: center; */
   flex-wrap: wrap;
   height: 12vw;
-  padding: 6vw 1vw 20vw 6vw;
-  gap: 4vw;
+  padding: 0vw 1vw 20vw 10vw;
+  gap: 1vw;
   left: 0;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
+  font-weight: 400;
+}
+
+.footer-logo{
+  background-color: #025b52;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 2vw 1vw 0vw 6vw;
+  gap: 2vw;
+}
+
+.footer-logo h2{
+  /* gap: 0vw; */
+  display: flex;
+  justify-content: center; /* Aligns items horizontally at the center */
+  align-items: center; /* Aligns items vertically at the center */
+  width: 17%; /* Set width as needed */
+  height: 30%;
 }
 
 footer .info {
-  width: 30%;
+  width: 35%;
   gap: 0vw;
   padding: 1vw;
 }
@@ -223,8 +630,9 @@ footer .info {
   list-style: none;
 }
 
-.footer-logo {
+.footer-logo-img {
   width: 6em;
+  height: 6em;
 }
 
 /* ------------------------------- search-bar ------------------------------- */

@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %} {% endblock %}</title>
   <link rel="stylesheet" href="{% static './css/base.css' %}" />
+  <link rel="icon" href="{% static 'D:\Trustroot_Network\public\static\images\favicon.ico' %}">
   {% block css %} {% endblock %}
 </head>
 
@@ -21,7 +22,8 @@
               <img width="40vw" src="{% static 'images/trn_logo.png' %}" alt="logo" />
             </li>
             <li><a href="{% url 'base:homePage' %}">Home</a></li>
-            <li><a href="{% url 'base:aboutPage' %}">About</a></li>
+            <!-- <li><a href="{% url 'base:homePage' %}" id="about-link">About</a></li> -->
+            <li><a id="about-link" href="#about-us">About</a></li>
             <li><a href="#">Funders</a></li>
             <li><a href="{% url 'base:grassrootPage' %}">Grassroots</a></li>
             <li><a href="{% url 'base:homePage' %}" id="work-with-us-link">Work with us</a></li>
@@ -57,7 +59,14 @@
   <script src="{% static 'js/jquery.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-
+    document.addEventListener("DOMContentLoaded", function () {
+        var aboutLink = document.getElementById("about-link");
+        aboutLink.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default behavior of the anchor tag
+          var aboutSection = document.getElementById("about-us");
+          aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
     $("#login-signup-btn").click(function () {
       $.ajax({
         url: "/authforms/",
