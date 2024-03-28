@@ -49,7 +49,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "auth/register/",
+      url: "http://127.0.0.1:8000/auth/register/",
       data: {
         usertype: typeOfUser,
         csrfmiddlewaretoken: csrftoken,
